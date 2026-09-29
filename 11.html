@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADOWSKI — Hydro-Technologies & Surface Restoration | Zielona Góra</title>
+    <meta name="description" content="Ultra-nowoczesne mycie i malowanie elewacji, dachów oraz kostki brukowej w Zielonej Górze i woj. lubuskim. Atestowana technologia, gorąca woda do 100°C i powłoki nano-hydrofobowe. Tel: 575 118 176.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0B0F17',
+                        panelbg: '#111827',
+                        cardborder: '#1F2937',
+                        cyan neon: {
+                            400: '#38BDF8',
+                            500: '#00F0FF',
+                            600: '#0284C7',
+                            glow: 'rgba(0, 240, 255, 0.45)'
+                        },
+                        emeraldneon: {
+                            400: '#34D399',
+                            500: '#00FF88',
+                            600: '#059669',
+                            glow: 'rgba(0, 255, 136, 0.4)'
+                        },
+                        titanium: '#1E293B',
+                        goldaccent: '#F59E0B'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace']
+                    },
+                    boxShadow: {
+                        'cyan-glow': '0 0 35px -5px rgba(0, 240, 255, 0.4)',
+                        'emerald-glow': '0 0 35px -5px rgba(0, 255, 136, 0.4)',
+                        'cyber-panel': '0 25px 60px -15px rgba(0, 0, 0, 0.85)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #0B0F17;
+            color: #F8FAFC;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-panel-futuristic {
+            background: rgba(17, 24, 39, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            background: rgba(26, 36, 56, 0.6);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(0, 240, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 240, 255, 0.25);
+        }
+
+        .bg-cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Before/After Laser Scanner Custom Styles */
+        .scanner-box {
+            position: relative;
+            user-select: none;
+            touch-action: pan-y;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+        .scanner-after-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .scanner-before-clip {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 50%;
+            overflow: hidden;
+            z-index: 10;
+        }
+        .scanner-before-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
+        .scanner-laser-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #00F0FF;
+            z-index: 20;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px #00F0FF, 0 0 30px #00F0FF;
+            cursor: ew-resize;
+        }
+        .scanner-laser-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: #0B0F17;
+            color: #00F0FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00F0FF;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+        }
+
+        /* Color Overlay Blend Class */
+        .color-blend-layer {
+            mix-blend-mode: multiply;
+            transition: background-color 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F17; }
+        ::-webkit-scrollbar-thumb { background: #1F2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
+    </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-black pb-20 lg:pb-0">
+
+    <!-- TOP STATUS BAR -->
+    <div class="bg-panelbg/90 border-b border-cardborder text-xs py-2.5 px-4 font-mono tracking-wide relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-6 text-slate-400">
+                <span class="flex items-center gap-2 text-cyan-400 font-bold">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <i class="fa-solid fa-location-dot"></i> Zielona Góra & Woj. Lubuskie (+60 km)
+                </span>
+                <span class="hidden md:flex items-center gap-2 text-slate-300">
+                    <i class="fa-solid fa-droplet text-emeraldneon-500"></i> Chemia Biodegradowalna 100% Eco
+                </span>
+            </div>
+            <div class="flex items-center gap-6 ml-auto font-sans font-extrabold">
+                <a href="mailto:elewacjemycie0909@wp.pl" class="hover:text-cyan-400 transition flex items-center gap-2 text-slate-300 text-xs">
+                    <i class="fa-solid fa-envelope text-cyan-400"></i> elewacjemycie0909@wp.pl
+                </a>
+                <a href="tel:575118176" class="text-emeraldneon-500 hover:text-white transition flex items-center gap-2 text-xs font-black">
+                    <i class="fa-solid fa-phone animate-bounce"></i> 575 118 176
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="sticky top-0 z-50 glass-panel-futuristic border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 via-sky-400 to-emeraldneon-500 p-0.5 shadow-cyan-glow group-hover:scale-105 transition transform">
+                    <div class="w-full h-full bg-obsidian rounded-[14px] flex items-center justify-center text-cyan-400 text-2xl">
+                        <i class="fa-solid fa-shower"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white block leading-none font-mono">SADOWSKI</span>
+                    <span class="text-[9px] font-extrabold text-cyan-400 tracking-[0.25em] uppercase">Hydro-Tech & Surface Tech</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center gap-7 font-bold text-slate-300 text-xs uppercase tracking-wider font-mono">
+                <a href="#symulator" class="hover:text-cyan-400 transition">Symulator 3D</a>
+                <a href="#konfigurator" class="hover:text-cyan-400 transition">Konfigurator Koloru</a>
+                <a href="#kalkulator" class="hover:text-cyan-400 transition">Kalkulator B2C/B2B</a>
+                <a href="#efekty" class="hover:text-cyan-400 transition">Przed / Po</a>
+                <a href="#diagnostyka" class="hover:text-cyan-400 transition">Diagnostyka</a>
+                <a href="#zasieg" class="hover:text-cyan-400 transition">Obszar</a>
+            </div>
+
+            <!-- Header Action Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/48575118176" target="_blank" rel="noopener noreferrer" class="bg-emeraldneon-500/10 border border-emeraldneon-500/40 text-emeraldneon-500 hover:bg-emeraldneon-500 hover:text-black font-black text-xs px-4 py-3 rounded-xl transition flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:575118176" class="bg-gradient-to-r from-cyan-400 via-sky-500 to-cyan-600 hover:brightness-110 text-black font-extrabold px-5 py-3 rounded-xl shadow-cyan-glow transition transform hover:-translate-y-0.5 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>575 118 176</span>
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white text-2xl p-2" aria-label="Otwórz menu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-panelbg border-b border-cardborder px-6 py-6 space-y-4 font-mono text-sm">
+            <a href="#symulator" class="block text-slate-200 font-bold hover:text-cyan-400">1. Wirtualna Lanca Myjąca</a>
+            <a href="#konfigurator" class="block text-slate-200 font-bold hover:text-cyan-400">2. Konfigurator Farb RAL</a>
+            <a href="#kalkulator" class="block text-slate-200 font-bold hover:text-cyan-400">3. Kalkulator i Oferta PDF/WhatsApp</a>
+            <a href="#efekty" class="block text-slate-200 font-bold hover:text-cyan-400">4. Hydro-Skaner Przed / Po</a>
+            <a href="#diagnostyka" class="block text-slate-200 font-bold hover:text-cyan-400">5. Diagnostyk Powierzchni</a>
+            <a href="#zasieg" class="block text-slate-200 font-bold hover:text-cyan-400">6. Zielona Góra & Dojazd</a>
+            <div class="pt-4 space-y-3">
+                <a href="tel:575118176" class="w-full bg-cyan-400 text-black font-black py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-cyan-glow">
+                    <i class="fa-solid fa-phone"></i> Zadzwoń: 575 118 176
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center py-16 bg-cyber-grid overflow-hidden border-b border-cardborder">
+        <div class="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-emeraldneon-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-panelbg border border-cyan-400/30 text-cyan-400 text-xs font-mono font-bold shadow-cyan-glow">
+                        <i class="fa-solid fa-certificate text-emeraldneon-500"></i>
+                        <span>Technologia Hydro-Power do 250 Bar & Woda 100°C</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
+                        Restauracja Powierzchni <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-emeraldneon-500">
+                            Bez Wymiany i Przebudowy
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Oszczędź do **85% kosztów** w porównaniu do nowego dachu czy tynku. Myjemy, impregnujemy nano-powłokami i malujemy agregatami hydrodynamicznymi elewacje, dachy i kostkę w całej Zielonej Górze i woj. lubuskim.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#symulator" class="w-full sm:w-auto bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 hover:brightness-110 text-black font-extrabold px-8 py-4 rounded-2xl shadow-cyan-glow transition transform hover:-translate-y-1 flex items-center justify-center gap-3 text-sm uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-gamepad text-lg"></i>
+                            <span>Wypróbuj Wirtualną Lancę Myjącą</span>
+                        </a>
+                        <a href="#kalkulator" class="w-full sm:w-auto glass-panel-futuristic hover:bg-slate-800/80 text-white font-bold px-8 py-4 rounded-2xl border border-cardborder transition flex items-center justify-center gap-3 text-sm uppercase tracking-wider font-mono">
+                            <i class="fa-solid fa-calculator text-cyan-400"></i>
+                            <span>Kalkulator Wyceny</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-8 border-t border-cardborder grid grid-cols-3 gap-4 font-mono text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-4xl font-black text-white">100%</div>
+                            <div class="text-[11px] text-slate-400 mt-1 font-sans">Usuwania Glonów & Mchów</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-4xl font-black text-cyan-400">Do 10 Lat</div>
+                            <div class="text-[11px] text-slate-400 mt-1 font-sans">Gwarancji na Powłoki Malarskie</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-4xl font-black text-emeraldneon-500">0 zł</div>
+                            <div class="text-[11px] text-slate-400 mt-1 font-sans">Dojazd i Doświadczalna Próba</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Highlight Badge -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel-futuristic p-8 rounded-3xl border border-cyan-400/30 shadow-cyber-panel space-y-6">
+                        <div class="flex items-center justify-between border-b border-cardborder pb-4">
+                            <span class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emeraldneon-500 animate-pulse"></span>
+                                Szybki Skrót Usług
+                            </span>
+                            <span class="text-[10px] bg-cyan-400/20 text-cyan-400 border border-cyan-400/40 px-3 py-1 rounded-full font-mono font-bold">
+                                Lubuskie Region
+                            </span>
+                        </div>
+
+                        <div class="space-y-3 font-sans text-xs">
+                            <div class="p-3.5 rounded-2xl bg-obsidian/80 border border-cardborder flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-400/20 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-house-chimney"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Elewacje Tynkowe</h4>
+                                    <p class="text-slate-400 text-[11px]">Mycie parowo-ciśnieniowe + impregnacja silikonowa</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-obsidian/80 border border-cardborder flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-emeraldneon-500/20 text-emeraldneon-500 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-roof-beam"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Dachy Ceramiczne & Blacha</h4>
+                                    <p class="text-slate-400 text-[11px]">Asekuracyjne odgrzybianie + malowanie 2x agregatem</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-obsidian/80 border border-cardborder flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-400/20 text-cyan-400 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-border-all"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Kostka Brukowa</h4>
+                                    <p class="text-slate-400 text-[11px]">Mycie tarcza Mosmatic + odplamianie oleju + piaskowanie</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="tel:575118176" class="p-4 rounded-2xl bg-gradient-to-r from-obsidian to-panelbg border border-emeraldneon-500/40 flex items-center justify-between hover:border-emeraldneon-400 transition group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emeraldneon-500 text-black flex items-center justify-center text-lg font-black group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] uppercase font-mono font-bold text-slate-400">Przedzwoń po bezpłatną wycenę</div>
+                                    <div class="text-lg font-black text-white group-hover:text-emeraldneon-500 transition">575 118 176</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-slate-400 group-hover:text-emeraldneon-500 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERAKTYWNY SYMULATOR MYCIA (VIRTUAL PRESSURE WASHER) -->
+    <section id="symulator" class="py-20 bg-obsidian relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10 space-y-4">
+                <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    <i class="fa-solid fa-gamepad mr-2"></i>Unikalna Interaktywna Symulacja
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Wirtualna Lanca Ciśnieniowa</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Wybierz obiekt i przesuwaj kursor/palec po brudnej powierzchni, aby na własne oczy zobaczyć natychmiastowy efekt mycia pod ciśnieniem 250 bar!</p>
+            </div>
+
+            <!-- Target Surface Selection Tabs -->
+            <div class="flex justify-center gap-3 mb-6 flex-wrap font-mono text-xs sm:text-sm">
+                <button class="sim-target-btn active px-6 py-3 rounded-2xl font-bold transition bg-cyan-400 text-black shadow-cyan-glow" data-target="elewacja">
+                    <i class="fa-solid fa-house-chimney mr-2"></i> Elewacja Tynkowa
+                </button>
+                <button class="sim-target-btn px-6 py-3 rounded-2xl font-bold transition bg-panelbg border border-cardborder text-slate-300 hover:text-white" data-target="dach">
+                    <i class="fa-solid fa-roof-beam mr-2"></i> Dachówka
+                </button>
+                <button class="sim-target-btn px-6 py-3 rounded-2xl font-bold transition bg-panelbg border border-cardborder text-slate-300 hover:text-white" data-target="kostka">
+                    <i class="fa-solid fa-border-all mr-2"></i> Kostka Brukowa
+                </button>
+            </div>
+
+            <!-- Canvas Container Frame -->
+            <div class="max-w-4xl mx-auto relative glass-panel-futuristic p-4 rounded-3xl border border-cyan-400/40 shadow-cyber-panel">
+                
+                <!-- Audio Synth Sound Toggle -->
+                <div class="absolute top-8 right-8 z-30">
+                    <button id="sim-audio-btn" class="bg-obsidian/80 backdrop-blur-md border border-cardborder hover:border-cyan-400 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition">
+                        <i class="fa-solid fa-volume-xmark text-cyan-400" id="audio-icon"></i>
+                        <span id="audio-label">Dźwięk Wody: WYŁ.</span>
+                    </button>
+                </div>
+
+                <div class="relative w-full h-[380px] sm:h-[500px] rounded-2xl overflow-hidden cursor-crosshair touch-none" id="sim-canvas-wrap">
+                    <!-- Clean Base Background Layer -->
+                    <img id="sim-clean-img" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover pointer-events-none" alt="Czysta nawierzchnia">
+                    
+                    <!-- Dirt Overlay Canvas -->
+                    <canvas id="sim-dirt-canvas" class="absolute inset-0 w-full h-full z-10"></canvas>
+
+                    <!-- Cleaned Percentage Counter -->
+                    <div class="absolute bottom-6 left-6 z-30 bg-obsidian/90 backdrop-blur-md border border-cyan-400/40 px-5 py-3 rounded-2xl font-mono text-xs text-white flex items-center gap-3 shadow-lg">
+                        <i class="fa-solid fa-gauge-high text-cyan-400 text-base"></i>
+                        <div>
+                            <div class="text-[10px] text-slate-400 uppercase">Wyczyszczona Powierzchnia</div>
+                            <div id="sim-cleaned-pct" class="text-lg font-black text-emeraldneon-500">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Reset Canvas Button -->
+                    <button id="sim-reset-btn" class="absolute bottom-6 right-6 z-30 bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold px-5 py-3 rounded-2xl text-xs font-mono transition flex items-center gap-2 shadow-cyan-glow">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Pobrudź Ponownie</span>
+                    </button>
+                </div>
+
+                <div class="mt-4 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 font-mono px-2 gap-2">
+                    <span><i class="fa-solid fa-hand-pointer text-cyan-400 mr-2"></i>Przesuwaj palcem lub myszą po obrazie, aby zmyć brud</span>
+                    <span class="text-emeraldneon-500 font-bold"><i class="fa-solid fa-check-double mr-1"></i>Spalinowe agregaty wyburzają brud bez niszczenia powłok</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONFIGURATOR KOLORU I POWŁOK MALARSKICH (RAL CONFIGURATOR) -->
+    <section id="konfigurator" class="py-20 bg-panelbg/60 relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    <i class="fa-solid fa-palette mr-2"></i>Symulator Kolorystyki
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Konfigurator Farb i Powłok Nano</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Przetestuj oryginalne palety barw RAL przed malowaniem agregatem hydrodynamicznym.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Color Controls Panel -->
+                <div class="lg:col-span-5 space-y-6 glass-panel-futuristic p-6 sm:p-8 rounded-3xl border border-cardborder">
+                    <div>
+                        <label class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-3">1. Wybierz Nawierzchnię:</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button id="paint-target-elewacja" class="paint-type-btn active p-3 rounded-xl bg-cyan-400 text-black font-extrabold text-xs font-mono transition">
+                                <i class="fa-solid fa-house-chimney mr-1.5"></i> Elewacja
+                            </button>
+                            <button id="paint-target-dach" class="paint-type-btn p-3 rounded-xl bg-obsidian border border-cardborder text-slate-300 font-extrabold text-xs font-mono hover:text-white transition">
+                                <i class="fa-solid fa-roof-beam mr-1.5"></i> Dach
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-3">2. Wybierz Odcień Farby RAL:</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                            <button class="ral-picker-btn active p-2.5 rounded-xl border-2 border-cyan-400 bg-obsidian flex items-center gap-2 text-left text-xs font-bold" data-color="#373E48" data-ral="Antracyt (RAL 7016)">
+                                <span class="w-4 h-4 rounded-full bg-[#373E48] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Antracyt</span>
+                            </button>
+                            <button class="ral-picker-btn p-2.5 rounded-xl border border-cardborder bg-obsidian hover:border-slate-400 flex items-center gap-2 text-left text-xs font-bold" data-color="#8C8F96" data-ral="Szary Grafit (RAL 7024)">
+                                <span class="w-4 h-4 rounded-full bg-[#8C8F96] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Grafit</span>
+                            </button>
+                            <button class="ral-picker-btn p-2.5 rounded-xl border border-cardborder bg-obsidian hover:border-slate-400 flex items-center gap-2 text-left text-xs font-bold" data-color="#80382B" data-ral="Czerwony Ceglasty (RAL 3009)">
+                                <span class="w-4 h-4 rounded-full bg-[#80382B] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Ceglasty</span>
+                            </button>
+                            <button class="ral-picker-btn p-2.5 rounded-xl border border-cardborder bg-obsidian hover:border-slate-400 flex items-center gap-2 text-left text-xs font-bold" data-color="#D6C7B2" data-ral="Piaskowy Beż (RAL 1015)">
+                                <span class="w-4 h-4 rounded-full bg-[#D6C7B2] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Piaskowy</span>
+                            </button>
+                            <button class="ral-picker-btn p-2.5 rounded-xl border border-cardborder bg-obsidian hover:border-slate-400 flex items-center gap-2 text-left text-xs font-bold" data-color="#F4F4F0" data-ral="Czysta Biel (RAL 9010)">
+                                <span class="w-4 h-4 rounded-full bg-[#F4F4F0] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Biel</span>
+                            </button>
+                            <button class="ral-picker-btn p-2.5 rounded-xl border border-cardborder bg-obsidian hover:border-slate-400 flex items-center gap-2 text-left text-xs font-bold" data-color="#2B2D31" data-ral="Czarny Głęboki (RAL 9005)">
+                                <span class="w-4 h-4 rounded-full bg-[#2B2D31] border border-white/30 shrink-0"></span>
+                                <span class="truncate">Czerń</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-3">3. Wykończenie Technologiczne:</label>
+                        <select id="finish-effect-select" class="w-full px-4 py-3 rounded-xl bg-obsidian border border-cardborder text-white text-xs font-mono font-bold focus:border-cyan-400 focus:outline-none">
+                            <option value="0.5">Mat Ochronny UV (Standard)</option>
+                            <option value="0.65">Satyna Głęboka (Efekt Nowości)</option>
+                            <option value="0.4">Powłoka Nano-Silver Hydrofobowa (Perlenie)</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 bg-obsidian rounded-2xl border border-cardborder space-y-1">
+                        <div class="text-[10px] text-slate-400 font-mono">Aktywna farba agregatowa:</div>
+                        <div id="ral-selected-name" class="text-base font-extrabold text-cyan-400">Antracyt (RAL 7016)</div>
+                        <p class="text-[11px] text-slate-400">Podwójny natrysk ciśnieniowy z silikonowym elasto-uszczelnowaniem micro-pęknięć.</p>
+                    </div>
+
+                    <a href="#kalkulator" class="w-full bg-emeraldneon-500 hover:bg-emeraldneon-400 text-black font-extrabold py-3.5 rounded-xl block text-center transition text-xs font-mono uppercase tracking-wider">
+                        Zapisz Ten Kolor w Kosztorysie
+                    </a>
+                </div>
+
+                <!-- Live Image Visualizer Display -->
+                <div class="lg:col-span-7">
+                    <div class="relative w-full h-[360px] sm:h-[480px] rounded-3xl overflow-hidden border border-cyan-400/30 shadow-cyber-panel">
+                        <img id="paint-visualizer-base" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80" alt="Metamorfoza" class="w-full h-full object-cover">
+                        
+                        <!-- Dynamic Color Blend Layer -->
+                        <div id="paint-visualizer-overlay" class="color-blend-layer absolute inset-0 bg-[#373E48] opacity-50 pointer-events-none"></div>
+
+                        <div class="absolute top-6 left-6 bg-obsidian/90 backdrop-blur-md px-4 py-2 rounded-xl border border-cardborder text-xs font-mono text-white flex items-center gap-2">
+                            <i class="fa-solid fa-eye text-cyan-400"></i>
+                            <span>Wizualizator Lakierniczy SADOWSKI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ZAWAWANSOWANY KALKULATOR B2C/B2B I GENERATOR OFERT -->
+    <section id="kalkulator" class="py-20 bg-obsidian relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    <i class="fa-solid fa-calculator mr-2"></i>Wycena w Czasie Rzeczywistym
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Kalkulator i Generator Ofert</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Sprawdź ile oszczędzasz w porównaniu do wymiany pokrycia i wygeneruj gotową ofertę na WhatsApp lub do wydruku!</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-panel-futuristic p-6 sm:p-10 rounded-3xl border border-cyan-400/30 shadow-cyber-panel">
+                <form id="pro-calc-form" onsubmit="event.preventDefault();" class="space-y-8">
+                    
+                    <!-- Service Select -->
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-3">1. Wybierz rodzaj usługi:</label>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="elewacja" class="calc-service-chk hidden" checked>
+                                <div class="calc-card-box p-4 rounded-2xl bg-panelbg border border-cardborder text-center transition space-y-1.5">
+                                    <i class="fa-solid fa-house-chimney text-cyan-400 text-xl block"></i>
+                                    <span class="font-bold text-xs text-white block font-mono">Elewacja</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="dach" class="calc-service-chk hidden">
+                                <div class="calc-card-box p-4 rounded-2xl bg-panelbg border border-cardborder text-center transition space-y-1.5">
+                                    <i class="fa-solid fa-roof-beam text-cyan-400 text-xl block"></i>
+                                    <span class="font-bold text-xs text-white block font-mono">Dach</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" value="kostka" class="calc-service-chk hidden">
+                                <div class="calc-card-box p-4 rounded-2xl bg-panelbg border border-cardborder text-center transition space-y-1.5">
+                                    <i class="fa-solid fa-border-all text-cyan-400 text-xl block"></i>
+                                    <span class="font-bold text-xs text-white block font-mono">Kostka Brukowa</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Area Slider & Input -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center font-mono">
+                            <label for="calc-m2-slider" class="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                                2. Powierzchnia w m²:
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="calc-m2-number" value="180" min="20" max="2000" class="w-24 px-3 py-1 bg-panelbg border border-cyan-400 text-cyan-400 font-bold text-center rounded-xl focus:outline-none">
+                                <span class="text-xs text-slate-400">m²</span>
+                            </div>
+                        </div>
+                        <input type="range" id="calc-m2-slider" min="20" max="2000" value="180" step="10" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                    </div>
+
+                    <!-- Condition & Finish Options -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-3">3. Stan Powierzchni:</label>
+                            <select id="calc-dirt-select" class="w-full px-4 py-3 rounded-xl bg-panelbg border border-cardborder text-white text-xs font-mono font-bold focus:border-cyan-400 focus:outline-none">
+                                <option value="1.0">Lekki nalot (Zwykły kurz / osad)</option>
+                                <option value="1.2">Średni (Mchy, glony zielone/czarne)</option>
+                                <option value="1.45">Ciężki (Wykwity solne, olej, stara farba)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wider mb-3">4. Wykonanie / Zabezpieczenie:</label>
+                            <select id="calc-finish-select" class="w-full px-4 py-3 rounded-xl bg-panelbg border border-cardborder text-white text-xs font-mono font-bold focus:border-cyan-400 focus:outline-none">
+                                <option value="mycie">Samo Czyszczenie + Oprysk Biocyd</option>
+                                <option value="hydrofob">Mycie + Impregnacja Nano Hydrofobowa</option>
+                                <option value="malowanie">Mycie + Malowanie Agregatem 2x</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional Extras -->
+                    <div class="p-4 rounded-2xl bg-obsidian border border-cardborder space-y-2">
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input type="checkbox" id="calc-extra-rynny" class="w-4 h-4 accent-cyan-400" checked>
+                            <span class="text-xs text-slate-300 font-bold">Czyszczenie i udrożnienie rynien (GRATIS przy komplecie)</span>
+                        </label>
+                    </div>
+
+                    <!-- Results Summary Box -->
+                    <div class="p-6 bg-obsidian rounded-2xl border border-cyan-400/40 space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <div class="text-[11px] text-slate-400 font-mono font-bold uppercase">Szacunkowy Kosztorys Usługi:</div>
+                                <div id="calc-result-price" class="text-3xl sm:text-4xl font-black text-cyan-400 mt-1 font-mono">ok. 2 160 - 2 880 zł</div>
+                                <div class="text-[10px] text-emeraldneon-500 font-mono font-bold mt-1">
+                                    <i class="fa-solid fa-piggy-bank mr-1"></i>
+                                    Oszczędzasz ok. <span id="calc-savings-val">15 400 zł</span> względem wymiany!
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <button type="button" onclick="sendWhatsAppQuote()" class="w-full bg-emeraldneon-500 hover:bg-emeraldneon-400 text-black font-extrabold px-5 py-3.5 rounded-xl transition flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-wider shadow-emerald-glow">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i> Wyślij Wyliczenie na WhatsApp
+                                </button>
+                                <button type="button" onclick="window.print()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-5 py-2.5 rounded-xl transition flex items-center justify-center gap-2 text-xs font-mono">
+                                    <i class="fa-solid fa-print"></i> Drukuj / Zapisz Podsumowanie
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SUWAK PORÓWNAWCZY PRZED / PO (ULTRA BEFORE/AFTER VISUALIZER) -->
+    <section id="efekty" class="py-20 bg-panelbg/60 relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    <i class="fa-solid fa-sliders mr-2"></i>Prawdopodobieństwo Metamorfozy
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Laserowy Hydro-Skaner</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Przesuwaj laserowy suwak i porównaj powłoki przed i po naszych pracach restauracyjnych.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="flex justify-center gap-3 mb-8 flex-wrap font-mono text-xs sm:text-sm">
+                <button class="laser-tab-btn active px-6 py-3 rounded-2xl font-bold transition bg-cyan-400 text-black shadow-cyan-glow" data-cat="elewacja">
+                    Elewacja Tynkowa
+                </button>
+                <button class="laser-tab-btn px-6 py-3 rounded-2xl font-bold transition bg-obsidian border border-cardborder text-slate-300 hover:text-white" data-cat="dach">
+                    Dach Ceramiczny
+                </button>
+                <button class="laser-tab-btn px-6 py-3 rounded-2xl font-bold transition bg-obsidian border border-cardborder text-slate-300 hover:text-white" data-cat="kostka">
+                    Kostka Brukowa
+                </button>
+            </div>
+
+            <!-- Scanner Frame -->
+            <div class="max-w-4xl mx-auto">
+                <div id="laser-scanner-box" class="scanner-box w-full h-[380px] sm:h-[520px] border border-cyan-400/40 shadow-cyber-panel">
+                    
+                    <img id="laser-after-img" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" alt="Po czyszczeniu" class="scanner-after-img">
+                    <span class="absolute bottom-6 right-6 bg-emeraldneon-500 text-black font-black text-xs px-4 py-2 rounded-xl z-0 font-mono tracking-wider">
+                        PO RESTAURACJI
+                    </span>
+
+                    <div id="laser-before-clip" class="scanner-before-clip">
+                        <img id="laser-before-img" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80" alt="Przed czyszczeniem" class="scanner-before-img">
+                        <span class="absolute bottom-6 left-6 bg-obsidian/90 text-white font-black text-xs px-4 py-2 rounded-xl z-10 font-mono tracking-wider border border-cardborder">
+                            PRZED (GLONY & SADZA)
+                        </span>
+                    </div>
+
+                    <div id="laser-line" class="scanner-laser-line">
+                        <div class="scanner-laser-handle">
+                            <i class="fa-solid fa-arrows-left-right text-base"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DIAGNOSTYK POWIERZCHNI -->
+    <section id="diagnostyka" class="py-20 bg-obsidian relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                    <i class="fa-solid fa-stethoscope mr-2"></i>Automatyczna Analiza
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Zdiagnozuj Twój Problem</h2>
+                <p class="text-slate-300 text-sm sm:text-base">Kliknij symptom widoczny na Twoim budynku, aby poznać zalecaną procedurę technologiczną.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="glass-card-hover p-6 rounded-3xl space-y-4 cursor-pointer diag-card" onclick="selectDiag(this, 'Czarny / Zielony Nalot na Elewacji', 'Symptom wywołany zarodnikami glonów i grzybów (skupienie od strony północnej).', 'Aplikacja preparatu biobójczego + zmycie gorącą wodą 80°C pod niskim ciśnieniem + nano-hydrofobizacja.')">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-400/20 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-virus"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">Zielony/Czarny Nalot Tynku</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Pojawia się zwłaszcza od strony północnej i zacienionej. Glony niszczą powłokę tynku.</p>
+                    <span class="text-xs text-cyan-400 font-mono font-bold flex items-center gap-1">Zobacz procedurę <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <div class="glass-card-hover p-6 rounded-3xl space-y-4 cursor-pointer diag-card" onclick="selectDiag(this, 'Grube Skorupy Mchu na Dachówce', 'Mech wrasta w pory dachówki betonowej lub ceramicznej zatrzymując wilgoć.', 'Czyszczenie rotacyjne do 250 bar + dezynfekcja chemiczna + dwukrotne malowanie farbą elastomerową.')">
+                    <div class="w-12 h-12 rounded-2xl bg-emeraldneon-500/20 text-emeraldneon-500 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-plant-wilt"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">Mchy i Porosty na Dachu</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Korzenie mchu powodują pękanie dachówek podczas mrozów zimowych.</p>
+                    <span class="text-xs text-cyan-400 font-mono font-bold flex items-center gap-1">Zobacz procedurę <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <div class="glass-card-hover p-6 rounded-3xl space-y-4 cursor-pointer diag-card" onclick="selectDiag(this, 'Plamy Oleju i Tłuszczu na Kostce', 'Wniknięcie cieczy ropopochodnej w głębokie pory betonu podjazdu.', 'Szybka aplikacja preparatu emulgującego tłuszcze + gorąca para 100°C + zasypanie piaskiem kwarcowym.')">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-400/20 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-oil-can"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">Plamy Oleju na Kostce</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Trudne do usunięcia zwykłą myjką domową bez odpowiedniej chemii i gorącej wody.</p>
+                    <span class="text-xs text-cyan-400 font-mono font-bold flex items-center gap-1">Zobacz procedurę <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+            </div>
+
+            <!-- Result Box -->
+            <div id="diag-result-panel" class="hidden mt-8 glass-panel-futuristic p-6 rounded-3xl border border-cyan-400/40 space-y-3 font-mono">
+                <div class="text-xs text-cyan-400 font-bold uppercase" id="diag-title">Zalecana Procedura Tech-Spec:</div>
+                <div class="text-sm font-bold text-white" id="diag-desc">...</div>
+                <div class="text-xs text-slate-300 border-t border-cardborder pt-3" id="diag-tech">...</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOKALNE CENTRUM OPERACYJNE ZIELONA GÓRA -->
+    <section id="zasieg" class="py-20 bg-panelbg/60 relative border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                        Lokalny Zespół
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">Zielona Góra i Całe Województwo Lubuskie</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Dojazd na bezpłatną wycenę i próbną próbkę na Twojej elewacji realizujemy w ciągu **24h od zgłoszenia**.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-bold text-white font-mono">
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Zielona Góra</div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Sulechów</div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Nowa Sól</div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Świebodzin</div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Krosno Odrz.</div>
+                        <div class="p-3 rounded-xl bg-obsidian border border-cardborder text-center">Żary / Żagań</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="glass-panel-futuristic p-8 rounded-3xl border border-cyan-400/30 space-y-6">
+                        <h3 class="text-xl font-black text-white flex items-center gap-3">
+                            <i class="fa-solid fa-map-location-dot text-cyan-400"></i>
+                            <span>Dzielnice Zielonej Góry:</span>
+                        </h3>
+
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Chynów</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Przylep</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Jędrzychów</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Wilkanowo</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Racula</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Stary Kisielin</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Nowy Kisielin</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-obsidian border border-cardborder">Zatonie</span>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-emeraldneon-500/10 border border-emeraldneon-500/30 text-xs text-emeraldneon-500 font-mono">
+                            <i class="fa-solid fa-car mr-2"></i>Dojazd ze sprzętem i własnym agregatem prądotwórczym w razie braku zasilania!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="kontakt" class="py-20 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                            Bezpośrednia Infolinia
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">Zamów Bezpłatną Wycenę</h2>
+                    </div>
+
+                    <div class="space-y-4 font-mono">
+                        <a href="tel:575118176" class="flex items-center gap-5 p-6 glass-panel-futuristic rounded-3xl border border-cardborder hover:border-emeraldneon-500 transition group">
+                            <div class="w-14 h-14 bg-emeraldneon-500 text-black rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase">Telefon Komórkowy</div>
+                                <div class="text-2xl font-black text-white group-hover:text-emeraldneon-500 transition">575 118 176</div>
+                                <div class="text-xs text-emeraldneon-500 font-bold">Kliknij, aby połączyć</div>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-5 p-6 glass-panel-futuristic rounded-3xl border border-cardborder">
+                            <div class="w-14 h-14 bg-cyan-400/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-[10px] text-slate-400 uppercase">E-mail Rezerwacyjny</div>
+                                <div class="text-sm font-bold text-white truncate">elewacjemycie0909@wp.pl</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel-futuristic p-8 rounded-3xl border border-cyan-400/30 shadow-cyber-panel">
+                        <h3 class="text-2xl font-black text-white mb-6">Szybki Formularz Zgłoszeniowy</h3>
+                        
+                        <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="fname" class="block text-xs font-mono font-bold uppercase text-slate-300 mb-1">Imię i Nazwisko</label>
+                                    <input type="text" id="fname" required placeholder="np. Jan Kowalski" class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-cardborder text-white focus:border-cyan-400 focus:outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label for="fphone" class="block text-xs font-mono font-bold uppercase text-slate-300 mb-1">Numer Telefonu</label>
+                                    <input type="tel" id="fphone" required placeholder="np. 575 118 176" class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-cardborder text-white focus:border-cyan-400 focus:outline-none text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="fmsg" class="block text-xs font-mono font-bold uppercase text-slate-300 mb-1">Lokalizacja i opis prac</label>
+                                <textarea id="fmsg" rows="4" required placeholder="np. Dom jednorodzinny w Zielonej Górze (Jędrzychów), mycie elewacji ok. 200m2..." class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-cardborder text-white focus:border-cyan-400 focus:outline-none text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-cyan-400 to-cyan-600 hover:brightness-110 text-black font-extrabold py-4 rounded-xl shadow-cyan-glow transition text-center flex items-center justify-center gap-2 text-base font-mono uppercase tracking-wider">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Wyślij Wiadomość</span>
+                            </button>
+                        </form>
+
+                        <div id="form-success-box" class="hidden mt-4 p-4 bg-emeraldneon-500/20 border border-emeraldneon-500 text-emeraldneon-500 rounded-xl font-bold text-center text-sm font-mono">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Dziękujemy! Skontaktujemy się telefonicznie w ciągu kilkunastu minut.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian text-slate-500 py-10 border-t border-cardborder text-xs font-mono">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:text-left space-y-4 sm:space-y-0">
+            <p>&copy; 2026 SADOWSKI - Hydro-Technologies. Wszelkie prawa zastrzeżone.</p>
+            <p>Zielona Góra | Sulechów | Nowa Sól | Świebodzin | Krosno Odrzańskie</p>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE ACTION BAR FOR SMARTPHONES -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-obsidian/95 backdrop-blur-md border-t border-cardborder p-3 z-50 flex items-center justify-between gap-3 shadow-cyber-panel">
+        <a href="tel:575118176" class="flex-1 bg-gradient-to-r from-emeraldneon-500 to-emerald-600 text-black font-black py-3.5 rounded-xl shadow-emerald-glow flex items-center justify-center gap-2 text-sm font-mono">
+            <i class="fa-solid fa-phone text-base"></i>
+            <span>575 118 176</span>
+        </a>
+        <a href="https://wa.me/48575118176" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-emeraldneon-500/20 text-emeraldneon-500 border border-emeraldneon-500/40 rounded-xl flex items-center justify-center text-2xl shrink-0">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* 1. VIRTUAL PRESSURE WASHER CANVAS SIMULATOR */
+        const simCanvas = document.getElementById('sim-dirt-canvas');
+        const simCtx = simCanvas.getContext('2d');
+        const cleanImg = document.getElementById('sim-clean-img');
+        const cleanedPctLabel = document.getElementById('sim-cleaned-pct');
+
+        let isCleaning = false;
+        let totalDirtyPixels = 0;
+
+        const simImages = {
+            elewacja: {
+                clean: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80',
+                dirtColor: 'rgba(30, 45, 30, 0.92)'
+            },
+            dach: {
+                clean: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+                dirtColor: 'rgba(25, 35, 25, 0.94)'
+            },
+            kostka: {
+                clean: 'https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=1600&q=80',
+                dirtColor: 'rgba(40, 35, 30, 0.95)'
+            }
+        };
+
+        function initDirtCanvas(dirtColor = 'rgba(30, 45, 30, 0.92)') {
+            simCanvas.width = simCanvas.parentElement.offsetWidth;
+            simCanvas.height = simCanvas.parentElement.offsetHeight;
+
+            // Fill with dark textured grime
+            simCtx.globalCompositeOperation = 'source-over';
+            simCtx.fillStyle = dirtColor;
+            simCtx.fillRect(0, 0, simCanvas.width, simCanvas.height);
+
+            // Add grime noise texture overlay
+            for (let i = 0; i < 4000; i++) {
+                simCtx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+                simCtx.fillRect(Math.random() * simCanvas.width, Math.random() * simCanvas.height, Math.random() * 6 + 2, Math.random() * 6 + 2);
+            }
+
+            totalDirtyPixels = simCanvas.width * simCanvas.height;
+            cleanedPctLabel.textContent = '0%';
+        }
+
+        function washAt(x, y) {
+            simCtx.globalCompositeOperation = 'destination-out';
+            
+            // Pressure Washer Spray Nozzle Arc
+            const gradient = simCtx.createRadialGradient(x, y, 5, x, y, 28);
+            gradient.addColorStop(0, 'rgba(0,0,0,1)');
+            gradient.addColorStop(0.8, 'rgba(0,0,0,0.8)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+
+            simCtx.fillStyle = gradient;
+            simCtx.beginPath();
+            simCtx.arc(x, y, 28, 0, Math.PI * 2);
+            simCtx.fill();
+
+            playWaterSound();
+            calculateCleanedProgress();
+        }
+
+        function calculateCleanedProgress() {
+            // Sample dirty canvas state (throttled)
+            if (Math.random() < 0.1) {
+                const imgData = simCtx.getImageData(0, 0, simCanvas.width, simCanvas.height);
+                let transparentPixels = 0;
+                for (let i = 3; i < imgData.data.length; i += 16) {
+                    if (imgData.data[i] < 50) transparentPixels++;
+                }
+                const pct = Math.min(100, Math.round((transparentPixels / (imgData.data.length / 16)) * 100));
+                cleanedPctLabel.textContent = `${pct}%`;
+            }
+        }
+
+        // Mouse & Touch Event Listeners for Washer
+        function getCanvasCoords(e) {
+            const rect = simCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return { x: clientX - rect.left, y: clientY - rect.top };
+        }
+
+        simCanvas.addEventListener('mousedown', (e) => { isCleaning = true; const c = getCanvasCoords(e); washAt(c.x, c.y); });
+        window.addEventListener('mouseup', () => isCleaning = false);
+        simCanvas.addEventListener('mousemove', (e) => { if (isCleaning) { const c = getCanvasCoords(e); washAt(c.x, c.y); } });
+
+        simCanvas.addEventListener('touchstart', (e) => { isCleaning = true; const c = getCanvasCoords(e); washAt(c.x, c.y); });
+        window.addEventListener('touchend', () => isCleaning = false);
+        simCanvas.addEventListener('touchmove', (e) => { if (isCleaning) { const c = getCanvasCoords(e); washAt(c.x, c.y); } });
+
+        document.getElementById('sim-reset-btn').addEventListener('click', () => {
+            const activeBtn = document.querySelector('.sim-target-btn.active');
+            const target = activeBtn ? activeBtn.dataset.target : 'elewacja';
+            initDirtCanvas(simImages[target].dirtColor);
+        });
+
+        // Target Switcher Tabs
+        document.querySelectorAll('.sim-target-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sim-target-btn').forEach(b => {
+                    b.classList.remove('bg-cyan-400', 'text-black', 'shadow-cyan-glow', 'active');
+                    b.classList.add('bg-panelbg', 'text-slate-300');
+                });
+                btn.classList.remove('bg-panelbg', 'text-slate-300');
+                btn.classList.add('bg-cyan-400', 'text-black', 'shadow-cyan-glow', 'active');
+
+                const target = btn.dataset.target;
+                cleanImg.src = simImages[target].clean;
+                initDirtCanvas(simImages[target].dirtColor);
+            });
+        });
+
+        /* 2. WEB AUDIO SYNTHESIZER (WATER PRESSURE SOUND) */
+        let audioCtx = null;
+        let audioEnabled = false;
+
+        document.getElementById('sim-audio-btn').addEventListener('click', () => {
+            audioEnabled = !audioEnabled;
+            const icon = document.getElementById('audio-icon');
+            const label = document.getElementById('audio-label');
+            
+            if (audioEnabled) {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                icon.className = 'fa-solid fa-volume-high text-emeraldneon-500';
+                label.textContent = 'Dźwięk Wody: WŁ.';
+            } else {
+                icon.className = 'fa-solid fa-volume-xmark text-cyan-400';
+                label.textContent = 'Dźwięk Wody: WYŁ.';
+            }
+        });
+
+        function playWaterSound() {
+            if (!audioEnabled || !audioCtx) return;
+            try {
+                const bufferSize = audioCtx.sampleRate * 0.05;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.value = 1200 + Math.random() * 400;
+
+                const gain = audioCtx.createGain();
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                noise.start();
+            } catch (e) {}
+        }
+
+        /* 3. RAL COLOR & PAINT CONFIGURATOR LOGIC */
+        const visualizerOverlay = document.getElementById('paint-visualizer-overlay');
+        const ralSelectedName = document.getElementById('ral-selected-name');
+
+        document.querySelectorAll('.ral-picker-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.ral-picker-btn').forEach(b => {
+                    b.classList.remove('border-2', 'border-cyan-400');
+                    b.classList.add('border', 'border-cardborder');
+                });
+                btn.classList.remove('border', 'border-cardborder');
+                btn.classList.add('border-2', 'border-cyan-400');
+
+                const colorHex = btn.dataset.color;
+                const ralName = btn.dataset.ral;
+                visualizerOverlay.style.backgroundColor = colorHex;
+                ralSelectedName.textContent = ralName;
+            });
+        });
+
+        document.getElementById('finish-effect-select').addEventListener('change', (e) => {
+            visualizerOverlay.style.opacity = e.target.value;
+        });
+
+        /* 4. PRO CALCULATOR 3.0 & ESTIMATOR LOGIC */
+        const slider = document.getElementById('calc-m2-slider');
+        const numInput = document.getElementById('calc-m2-number');
+        const priceResult = document.getElementById('calc-result-price');
+        const savingsVal = document.getElementById('calc-savings-val');
+
+        function updateCalc() {
+            const m2 = parseInt(numInput.value) || 20;
+
+            const selectedServices = document.querySelectorAll('.calc-service-chk:checked');
+            if (selectedServices.length === 0) {
+                priceResult.textContent = 'Zaznacz usługę';
+                savingsVal.textContent = '0 zł';
+                return;
+            }
+
+            let baseRateMin = 0;
+            let baseRateMax = 0;
+
+            selectedServices.forEach(s => {
+                if (s.value === 'elewacja') { baseRateMin += 12; baseRateMax += 18; }
+                if (s.value === 'dach') { baseRateMin += 16; baseRateMax += 24; }
+                if (s.value === 'kostka') { baseRateMin += 10; baseRateMax += 15; }
+            });
+
+            const dirtMult = parseFloat(document.getElementById('calc-dirt-select').value);
+            baseRateMin *= dirtMult;
+            baseRateMax *= dirtMult;
+
+            const finishType = document.getElementById('calc-finish-select').value;
+            if (finishType === 'hydrofob') { baseRateMin += 5; baseRateMax += 8; }
+            if (finishType === 'malowanie') { baseRateMin += 18; baseRateMax += 26; }
+
+            const totalMin = Math.round(m2 * baseRateMin);
+            const totalMax = Math.round(m2 * baseRateMax);
+
+            // Estimated replacement cost savings comparison
+            const replacementEst = m2 * 110; 
+            const savings = Math.max(0, replacementEst - totalMax);
+
+            const fmt = (val) => val.toLocaleString('pl-PL');
+            priceResult.textContent = `ok. ${fmt(totalMin)} - ${fmt(totalMax)} zł`;
+            savingsVal.textContent = `${fmt(savings)} zł`;
+        }
+
+        slider.addEventListener('input', (e) => { numInput.value = e.target.value; updateCalc(); });
+        numInput.addEventListener('input', (e) => { slider.value = e.target.value; updateCalc(); });
+
+        document.querySelectorAll('.calc-service-chk').forEach(c => c.addEventListener('change', updateCalc));
+        document.getElementById('calc-dirt-select').addEventListener('change', updateCalc);
+        document.getElementById('calc-finish-select').addEventListener('change', updateCalc);
+
+        function sendWhatsAppQuote() {
+            const m2 = numInput.value;
+            const price = priceResult.textContent;
+            const text = encodeURIComponent(`Dzień dobry SADOWSKI! Wygenerowałem wycenę w kalkulatorze:\n- Powierzchnia: ${m2} m²\n- Szacowany koszt: ${price}\nProszę o kontakt w sprawie bezpłatnego dojazdu w woj. lubuskim.`);
+            window.open(`https://wa.me/48575118176?text=${text}`, '_blank');
+        }
+
+        /* 5. LASER SCANNER BEFORE/AFTER LOGIC */
+        const scannerBox = document.getElementById('laser-scanner-box');
+        const beforeClip = document.getElementById('laser-before-clip');
+        const laserLine = document.getElementById('laser-line');
+        let isLaserSliding = false;
+
+        function updateLaserPos(x) {
+            const rect = scannerBox.getBoundingClientRect();
+            let pos = x - rect.left;
+            if (pos < 0) pos = 0;
+            if (pos > rect.width) pos = rect.width;
+            const pct = (pos / rect.width) * 100;
+            beforeClip.style.width = `${pct}%`;
+            laserLine.style.left = `${pct}%`;
+        }
+
+        scannerBox.addEventListener('mousedown', (e) => { isLaserSliding = true; updateLaserPos(e.clientX); });
+        window.addEventListener('mouseup', () => isLaserSliding = false);
+        window.addEventListener('mousemove', (e) => { if (isLaserSliding) updateLaserPos(e.clientX); });
+
+        scannerBox.addEventListener('touchstart', (e) => { isLaserSliding = true; updateLaserPos(e.touches[0].clientX); });
+        window.addEventListener('touchend', () => isLaserSliding = false);
+        window.addEventListener('touchmove', (e) => { if (isLaserSliding) updateLaserPos(e.touches[0].clientX); });
+
+        /* 6. DIAGNOSTIC TOOL SELECTOR */
+        function selectDiag(card, title, desc, tech) {
+            document.querySelectorAll('.diag-card').forEach(c => c.classList.remove('border-cyan-400'));
+            card.classList.add('border-cyan-400');
+            
+            const panel = document.getElementById('diag-result-panel');
+            panel.classList.remove('hidden');
+            document.getElementById('diag-title').textContent = `Diagnoza: ${title}`;
+            document.getElementById('diag-desc').textContent = desc;
+            document.getElementById('diag-tech').textContent = `Proponowane rozwiązanie: ${tech}`;
+        }
+
+        /* 7. MOBILE MENU TOGGLE & FORM SUBMISSION */
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('form-success-box');
+            successBox.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => successBox.classList.add('hidden'), 5000);
+        }
+
+        // Initialize Canvas & Calculator on Page Load
+        window.onload = function() {
+            initDirtCanvas();
+            updateCalc();
+        };
+    </script>
+</body>
+</html>

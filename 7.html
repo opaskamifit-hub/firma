@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadowski — Profesjonalne Mycie i Malowanie Elewacji, Dachów i Kostki | Zielona Góra</title>
+    <meta name="description" content="Eksperci w odnawianiu i czyszczeniu powierzchni zewnętrznych w Zielonej Górze. Mycie ciśnieniowe, odgrzybianie, impregnacja i malowanie elewacji, dachów oraz kostki. Zadzwoń: 575 118 176">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            900: '#0f172a',
+                            950: '#0a0e1a',
+                            gold: '#d97706',
+                            emerald: '#059669'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & FontAwesome CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Modern Glassmorphism & Custom Effects */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(2, 132, 199, 0.3);
+        }
+        
+        /* Interactive Before/After Comparison Styles */
+        .ba-slider {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            touch-action: pan-y;
+        }
+        .ba-after-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ba-before-wrapper {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 50%;
+            overflow: hidden;
+            z-index: 10;
+        }
+        .ba-before-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #ffffff;
+            z-index: 20;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            cursor: ew-resize;
+        }
+        .ba-handle-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: #0284c7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white pb-20 lg:pb-0">
+
+    <!-- Górny pasek powiadomień -->
+    <div class="bg-gradient-to-r from-brand-900 via-slate-900 to-brand-900 border-b border-slate-800 text-slate-300 text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="flex items-center gap-1.5 text-brand-400">
+                    <i class="fa-solid fa-location-dot"></i> Zielona Góra, Sulechów, Nowa Sól & okolice
+                </span>
+                <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+                    <i class="fa-solid fa-clock"></i> Pon - Sob: 7:00 - 19:00
+                </span>
+            </div>
+            <div class="flex items-center gap-6 text-xs ml-auto">
+                <a href="mailto:elewacjemycie0909@wp.pl" class="hover:text-white transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-envelope text-brand-400"></i> elewacjemycie0909@wp.pl
+                </a>
+                <a href="tel:575118176" class="font-bold text-white hover:text-brand-400 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-emerald-400"></i> 575 118 176
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Główna nawigacja -->
+    <nav class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-gradient-to-tr from-brand-600 via-brand-500 to-brand-400 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition transform">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white block leading-none">SADOWSKI</span>
+                    <span class="text-[10px] font-bold text-brand-400 tracking-widest uppercase">Elewacje • Dachy • Kostka</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktopowe -->
+            <div class="hidden lg:flex items-center gap-8 font-semibold text-slate-300 text-sm">
+                <a href="#uslugi" class="hover:text-brand-400 transition">Usługi</a>
+                <a href="#efekty" class="hover:text-brand-400 transition">Przed & Po</a>
+                <a href="#kalkulator" class="hover:text-brand-400 transition">Kalkulator Ceny</a>
+                <a href="#dlaczego-my" class="hover:text-brand-400 transition">O Nas</a>
+                <a href="#faq" class="hover:text-brand-400 transition">FAQ</a>
+                <a href="#kontakt" class="hover:text-brand-400 transition">Kontakt</a>
+            </div>
+
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="tel:575118176" class="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-500 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/25 transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Zadzwoń teraz</span>
+                </a>
+            </div>
+
+            <!-- Przycisk Mobile -->
+            <button id="mobile-toggle" class="lg:hidden text-slate-300 hover:text-white p-2 text-2xl" aria-label="Otwórz menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobilne Rozwijane -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#uslugi" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Usługi</a>
+            <a href="#efekty" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Przed / Po</a>
+            <a href="#kalkulator" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Kalkulator Wyceny</a>
+            <a href="#dlaczego-my" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Dlaczego My</a>
+            <a href="#faq" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Częste pytania (FAQ)</a>
+            <a href="#kontakt" class="block text-slate-200 font-semibold text-lg hover:text-brand-400">Kontakt</a>
+            <div class="pt-4 space-y-3">
+                <a href="tel:575118176" class="w-full bg-brand-500 text-white font-bold py-3.5 rounded-xl text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone"></i> Zadzwoń: 575 118 176
+                </a>
+                <a href="mailto:elewacjemycie0909@wp.pl" class="w-full bg-slate-800 text-slate-300 font-semibold py-3.5 rounded-xl text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> Napisz e-mail
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <!-- Tło dekoracyjne z cząsteczkami światła -->
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute -top-30 -right-30 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-30 w-96 h-96 bg-brand-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Teksty Główne -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-8">
+                    
+                    <!-- Badges -->
+                    <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                        <span class="bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-certificate text-brand-400"></i> Lider w Woj. Lubuskim
+                        </span>
+                        <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5">
+                            <i class="fa-solid fa-shield-halved"></i> 100% Gwarancja Jakości
+                        </span>
+                    </div>
+
+                    <!-- Główny Tytuł -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
+                        Przywracamy fabryczny blask <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-sky-300 to-brand-500">Elewacjom, Dachom i Kostce</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Sadowski to gwarancja najwyższej czystości. Profesjonalne mycie ciśnieniowe, odgrzybianie, usuwanie plam olejowych oraz zabezpieczanie i malowanie trwałą chemią ochronną w **Zielonej Górze i okolicach**.
+                    </p>
+
+                    <!-- Przyciski Akcji -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#kalkulator" class="w-full sm:w-auto bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-500 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-brand-500/25 transition transform hover:-translate-y-1 flex items-center justify-center gap-3 text-base">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Darmowa Wycena Online</span>
+                        </a>
+                        <a href="tel:575118176" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-2xl border border-slate-700 transition flex items-center justify-center gap-3 text-base">
+                            <i class="fa-solid fa-phone text-emerald-400"></i>
+                            <span>575 118 176</span>
+                        </a>
+                    </div>
+
+                    <!-- Statystyki / Zaufanie -->
+                    <div class="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-white">100%</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Darmowa wycena i dojazd</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-white">Do 10 lat</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Trwałość powłok</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-white">Szybko</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Krótkie terminy realizacji</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Karta Szybkiego Kontaktu Hero -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-8 rounded-3xl glow-effect space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Zamów Bezpłatny Dojazd</h3>
+                                <p class="text-xs text-slate-400 mt-1">Oględziny na miejscu bez zobowiązań</p>
+                            </div>
+                            <div class="w-10 h-10 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <a href="tel:575118176" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/50 transition group">
+                                <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Infolinia Direct</div>
+                                    <div class="text-xl font-bold text-white group-hover:text-brand-400 transition">575 118 176</div>
+                                </div>
+                            </a>
+
+                            <a href="mailto:elewacjemycie0909@wp.pl" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/50 transition group">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 text-brand-400 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Adres e-mail</div>
+                                    <div class="text-sm font-bold text-white group-hover:text-brand-400 transition truncate">elewacjemycie0909@wp.pl</div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="bg-brand-500/10 rounded-2xl p-4 border border-brand-500/20 text-xs text-slate-300 leading-relaxed flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-brand-400 text-lg shrink-0 mt-0.5"></i>
+                            <span>Działamy w promieniu 50 km od Zielonej Góry (Sulechów, Nowa Sól, Krosno Odrzańskie, Świebodzin).</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA USŁUGI -->
+    <section id="uslugi" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                    Zakres naszych usług
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Kompleksowa Odnowa Powierzchni</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Stosujemy zaawansowany sprzęt wysokociśnieniowy, chemię antygrzybiczną oraz atestowane farby elewacyjne i dachowe.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <!-- Karta 1: Elewacje -->
+                <div class="glass-panel rounded-3xl p-8 hover:border-brand-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg shadow-brand-500/20 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-house-chimney-crack"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Elewacje</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Czyszczenie hydrociśnieniowe tynków baranków, cyklinowanych i silikonowych. Niszczymy komórki glonów, mchów i czarnych nalotów.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Usuwanie biologii i odgrzybianie</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Hydrofobizacja (ochrona przed wodą)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Malowanie farbami silikonowymi</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Mycie gorącowodne pod niskim ciśnieniem</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#kalkulator" class="w-full bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-200 font-bold py-3.5 rounded-xl transition block text-center text-sm">
+                            Wycena dla Elewacji
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Karta 2: Dachy -->
+                <div class="glass-panel rounded-3xl p-8 hover:border-brand-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg shadow-brand-500/20 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-roof-beam"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Dachy</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Bezpieczne czyszczenie wysokościowe dachówek ceramicznych, betonowych oraz blachodachówki. Zabezpieczenie przed powrotem mchu.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Usuwanie grubej warstwy mchu i sadzy</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Impregnacja hydrofobowa dachówki</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Malowanie natryskowe (farby UV)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Kontrola drożności rynien</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#kalkulator" class="w-full bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-200 font-bold py-3.5 rounded-xl transition block text-center text-sm">
+                            Wycena dla Dachu
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Karta 3: Kostka Brukowa -->
+                <div class="glass-panel rounded-3xl p-8 hover:border-brand-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg shadow-brand-500/20 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-border-all"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Kostka Brukowa</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Dogłębne czyszczenie podjazdów i chodników. Likwidacja plam z oleju silnikowego, chwastów i porostów w spoinach.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-300 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Usuwanie plam po oleju i chemii</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Spoinowanie piaskiem kwarcowym</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Impregnacja "Mokra Kostka" (Wet-Look)</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-400"></i> Czyszczenie talerzowe rotacyjne</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="#kalkulator" class="w-full bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-200 font-bold py-3.5 rounded-xl transition block text-center text-sm">
+                            Wycena dla Kostki
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PORÓWNYWARKA PRZED / PO -->
+    <section id="efekty" class="py-24 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                    Niesamowita Transformacja
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Zobacz Efekty Przed i Po</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Przesuń suwak w lewo lub prawo, aby zobaczyć, jak usuwamy wieloletni brud i przywracamy świeżość.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div id="ba-container" class="ba-slider relative w-full h-[350px] sm:h-[500px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                    
+                    <!-- ZDJĘCIE PO (SPÓD) -->
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80" alt="Elewacja czysta po wykonaniu usługi" class="ba-after-img">
+                    <span class="absolute bottom-6 right-6 bg-emerald-600/90 text-white font-black text-xs sm:text-sm px-4 py-2 rounded-xl backdrop-blur-md shadow-lg z-0 tracking-wider">
+                        PO CZYSZCZENIU
+                    </span>
+
+                    <!-- ZDJĘCIE PRZED (PRZYCINANE) -->
+                    <div class="ba-before-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80" alt="Elewacja brudna przed usługa" class="ba-before-img">
+                        <span class="absolute bottom-6 left-6 bg-slate-900/90 text-white font-black text-xs sm:text-sm px-4 py-2 rounded-xl backdrop-blur-md shadow-lg z-10 tracking-wider">
+                            PRZED CZYSZCZENIEM
+                        </span>
+                    </div>
+
+                    <!-- UCHWYT SUWAKA -->
+                    <div class="ba-handle">
+                        <div class="ba-handle-btn">
+                            <i class="fa-solid fa-arrows-left-right text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 text-xs sm:text-sm text-slate-400">
+                    <i class="fa-solid fa-hand-pointer text-brand-400 mr-2"></i> Przeciągnij palcem lub myszką, by przesunąć linię podziału
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KALKULATOR SZACUNKOWEJ WYCENY -->
+    <section id="kalkulator" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                        Przejrzysta Oferta
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Interaktywny Kalkulator Ceny</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        Wybierz rodzaj usługi, określ szacowaną powierzchnię i dowiedz się, ile kosztuje profesjonalne odświeżenie Twojej nieruchomości.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 font-black flex items-center justify-center shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Brak ukrytych kosztów</h4>
+                                <p class="text-slate-400 text-xs">Cena wyliczona w kalkulatorze jest Orientacyjna. Dokładną kwotę podajemy po darmowych oględzinach.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 font-black flex items-center justify-center shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Rabat pakietowy</h4>
+                                <p class="text-slate-400 text-xs">Łącząc mycie elewacji z dachem lub kostką brukowa otrzymujesz rabat do 15%.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formularz Kalkulatora -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-6 sm:p-10 rounded-3xl text-slate-900 shadow-2xl">
+                        <form id="calc-form" class="space-y-6" onsubmit="event.preventDefault();">
+                            
+                            <!-- KROK 1: Rodzaj Usługi -->
+                            <div>
+                                <label class="block text-sm font-extrabold text-slate-800 mb-3">1. Wybierz obiekt:</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="calc-type" value="elewacja" class="peer hidden" checked>
+                                        <div class="p-4 text-center rounded-2xl border-2 border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 font-bold text-slate-700 peer-checked:text-brand-600 transition">
+                                            <i class="fa-solid fa-house-chimney text-xl block mb-1"></i>
+                                            <span class="text-xs sm:text-sm">Elewacja</span>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="calc-type" value="dach" class="peer hidden">
+                                        <div class="p-4 text-center rounded-2xl border-2 border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 font-bold text-slate-700 peer-checked:text-brand-600 transition">
+                                            <i class="fa-solid fa-roof-beam text-xl block mb-1"></i>
+                                            <span class="text-xs sm:text-sm">Dach</span>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="calc-type" value="kostka" class="peer hidden">
+                                        <div class="p-4 text-center rounded-2xl border-2 border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50 font-bold text-slate-700 peer-checked:text-brand-600 transition">
+                                            <i class="fa-solid fa-border-all text-xl block mb-1"></i>
+                                            <span class="text-xs sm:text-sm">Kostka</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- KROK 2: Rodzaj Prac -->
+                            <div>
+                                <label class="block text-sm font-extrabold text-slate-800 mb-3">2. Wariant prac:</label>
+                                <select id="calc-variant" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 bg-white font-semibold text-sm">
+                                    <option value="mycie">Samo Mycie Ciśnieniowe + Odgrzybianie</option>
+                                    <option value="impregnacja" selected>Mycie + Impregnacja Ochronna Hydrofobowa</option>
+                                    <option value="malowanie">Mycie + Profesjonalne Malowanie Powłokowe</option>
+                                </select>
+                            </div>
+
+                            <!-- KROK 3: Suwak m² -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label for="calc-area" class="text-sm font-extrabold text-slate-800">3. Powierzchnia:</label>
+                                    <span id="calc-area-display" class="font-black text-brand-600 text-lg">150 m²</span>
+                                </div>
+                                <input type="range" id="calc-area" min="50" max="500" value="150" step="10" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-500">
+                                <div class="flex justify-between text-xs text-slate-500 font-medium mt-1">
+                                    <span>50 m²</span>
+                                    <span>275 m²</span>
+                                    <span>500 m²</span>
+                                </div>
+                            </div>
+
+                            <!-- Wynik i CTA -->
+                            <div class="p-6 bg-slate-950 rounded-2xl text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Szacowany Koszt Brutto:</div>
+                                    <div id="calc-result" class="text-2xl sm:text-3xl font-black text-brand-400">ok. 1 800 - 2 400 zł</div>
+                                </div>
+                                <a href="tel:575118176" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white font-extrabold px-6 py-3.5 rounded-xl transition text-center shrink-0 text-sm shadow-lg shadow-brand-500/30">
+                                    Zamów Wizję Lokalną
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DLACZEGO SADOWSKI & PROCES -->
+    <section id="dlaczego-my" class="py-24 bg-slate-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Atuty -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+                <div>
+                    <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                        Nasze atuty
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black mt-4 mb-6 leading-tight">Dlaczego Klienci Wybierają Firmę Sadowski?</h2>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-8">
+                        Jesteśmy lokalnym zespołem fachowców. Nie stosujemy półśrodków – pracujemy na certyfikowanych maszynach wysokociśnieniowych z podgrzewaczami wody oraz używamy biodegradowalnych preparatów czyszczących.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="p-5 bg-slate-900 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-gauge-high text-brand-400 text-2xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Certyfikowany Sprzęt</h4>
+                            <p class="text-xs text-slate-400">Regulowane ciśnienie dostosowane do wrażliwości tynku czy dachówki.</p>
+                        </div>
+                        <div class="p-5 bg-slate-900 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-leaf text-emerald-400 text-2xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Bezpieczna Chemia</h4>
+                            <p class="text-xs text-slate-400">Środki bezpieczne dla roślinności wokół budynku i domowych zwierząt.</p>
+                        </div>
+                        <div class="p-5 bg-slate-900 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-truck-fast text-amber-400 text-2xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Darmowy Dojazd</h4>
+                            <p class="text-xs text-slate-400">Dojazd i wycena na terenie Zielonej Góry i całego województwa bez opłat.</p>
+                        </div>
+                        <div class="p-5 bg-slate-900 rounded-2xl border border-slate-800">
+                            <i class="fa-solid fa-broom text-sky-400 text-2xl mb-3"></i>
+                            <h4 class="font-bold text-white mb-1">Czystość po pracach</h4>
+                            <p class="text-xs text-slate-400">Zawsze sprzątamy teren posesji i okna po wykonaniu usługi czyszczenia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Obszar Działania -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-map-location-dot text-brand-400"></i> Obszar Działania
+                    </h3>
+                    <p class="text-slate-300 text-sm mb-6">
+                        Główna baza operacyjna mieści się w Zielonej Górze. Obsługujemy Klientów indywidualnych oraz firmy w całej okolicy:
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 text-sm font-semibold">
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Zielona Góra
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Sulechów
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Nowa Sól
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Świebodzin
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Krosno Odrzańskie
+                        </div>
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-check text-brand-400"></i> Czerwieńsk
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-brand-500/10 rounded-2xl border border-brand-500/20 text-xs text-brand-300 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-info text-lg shrink-0"></i>
+                        <span>Inna miejscowość w woj. lubuskim? Zadzwoń – dojeżdżamy do większych zleceń bez problemu!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROCES WSPÓŁPRACY KROK PO KROKU -->
+            <div class="border-t border-slate-800 pt-20">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-black text-white">Jak Wygląda Współpraca?</h2>
+                    <p class="text-slate-400 text-sm mt-2">Prosty proces od pierwszego telefonu do gwarancji czystości.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 bg-slate-900 rounded-3xl border border-slate-800 relative space-y-4">
+                        <div class="w-12 h-12 bg-brand-500 text-white font-black rounded-2xl flex items-center justify-center text-xl">1</div>
+                        <h4 class="font-bold text-white text-lg">Kontakt & Rozmowa</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Dzwonisz pod numer 575 118 176 lub wysyłasz zapytanie przez formularz online.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-900 rounded-3xl border border-slate-800 relative space-y-4">
+                        <div class="w-12 h-12 bg-brand-500 text-white font-black rounded-2xl flex items-center justify-center text-xl">2</div>
+                        <h4 class="font-bold text-white text-lg">Darmowe Oględziny</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Przyjeżdżamy do Zielonej Góry lub okolic, oceniamy stan i podajemy stałą cenę.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-900 rounded-3xl border border-slate-800 relative space-y-4">
+                        <div class="w-12 h-12 bg-brand-500 text-white font-black rounded-2xl flex items-center justify-center text-xl">3</div>
+                        <h4 class="font-bold text-white text-lg">Profesjonalna Realizacja</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Wykonujemy mycie, odgrzybianie oraz opcjonalną impregnację lub malowanie.</p>
+                    </div>
+
+                    <div class="p-6 bg-slate-900 rounded-3xl border border-slate-800 relative space-y-4">
+                        <div class="w-12 h-12 bg-emerald-600 text-white font-black rounded-2xl flex items-center justify-center text-xl">4</div>
+                        <h4 class="font-bold text-white text-lg">Odbiór i Gwarancja</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Sprawdzasz efekty prac. Płacisz dopiero po akceptacji wykonanego zlecenia.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEKCJA FAQ (NAJCZĘŚCIEJ ZADAWANE PYTANIA) -->
+    <section id="faq" class="py-24 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 space-y-3">
+                <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                    Odpowiedzi na pytania
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Najczęściej Zadawane Pytania</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+                    <button class="faq-btn w-full p-6 text-left font-bold text-white flex justify-between items-center gap-4 hover:text-brand-400 transition">
+                        <span>Jak długo utrzymuje się efekt po myciu i impregnacji elewacji?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed">
+                        Samo mycie usuwa brud, ale to impregnacja hydrofobowa tworzy barierę ochronną. Dobrej jakości impregnat zabezpiecza elewację lub dachówkę przed wnikaniem wilgoci i ponownym wzrostem glonów nawet na okres 3 do 5 lat.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+                    <button class="faq-btn w-full p-6 text-left font-bold text-white flex justify-between items-center gap-4 hover:text-brand-400 transition">
+                        <span>Czy środki chemiczne używane do odgrzybiania są bezpieczne dla ogrodu?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed">
+                        Tak. Stosujemy atestowane preparaty czyszczące, które ulegają biodegradacji. Przed przystąpieniem do prac zabezpieczamy wrażliwe rośliny i krzewy rosnące bezpośrednio przy ścianach budynku.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+                    <button class="faq-btn w-full p-6 text-left font-bold text-white flex justify-between items-center gap-4 hover:text-brand-400 transition">
+                        <span>Czy dojazd i wycena w Zielonej Górze i okolicach są płatne?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed">
+                        Nie! Dojazd na miejsce, dokonanie pomiarów oraz przedstawienie wyceny w Zielonej Górze i okolicznych miejscowościach są w 100% darmowe i nie zobowiązują do podpisania umowy.
+                    </div>
+                </div>
+
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+                    <button class="faq-btn w-full p-6 text-left font-bold text-white flex justify-between items-center gap-4 hover:text-brand-400 transition">
+                        <span>Czy muszę zapewniać dostęp do wody i prądu?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed">
+                        Do wykonania prac niezbędny jest dostęp do bieżącej wody z kranu ogrodowego oraz standardowe przyłącze prądu. Posiadamy własne długie węże oraz przedłużacze przemysłowe.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCJA KONTAKT -->
+    <section id="kontakt" class="py-24 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Dane Kontaktowe -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-400 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-4 py-2 rounded-full border border-brand-500/20">
+                            Bezpośredni kontakt
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">Skontaktuj się z Nami</h2>
+                        <p class="text-slate-300 text-sm sm:text-base mt-2">Chętnie odpowiemy na pytania i ustalimy dogodny termin bezpłatnych oględzin.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="tel:575118176" class="flex items-center gap-5 p-6 glass-panel rounded-3xl border border-slate-800 hover:border-brand-500/50 transition group">
+                            <div class="w-14 h-14 bg-emerald-600 text-white rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Telefon Komórkowy</div>
+                                <div class="text-2xl font-black text-white group-hover:text-emerald-400 transition">575 118 176</div>
+                                <div class="text-xs text-emerald-400 font-medium">Kliknij, aby zadzwonić teraz</div>
+                            </div>
+                        </a>
+
+                        <a href="mailto:elewacjemycie0909@wp.pl" class="flex items-center gap-5 p-6 glass-panel rounded-3xl border border-slate-800 hover:border-brand-500/50 transition group">
+                            <div class="w-14 h-14 bg-brand-500 text-white rounded-2xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">E-mail Oferty</div>
+                                <div class="text-lg font-bold text-white group-hover:text-brand-400 transition truncate">elewacjemycie0909@wp.pl</div>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-5 p-6 glass-panel rounded-3xl border border-slate-800">
+                            <div class="w-14 h-14 bg-slate-800 text-brand-400 rounded-2xl flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Siedziba i Obszar</div>
+                                <div class="text-base font-bold text-white">Zielona Góra i okolice (Woj. Lubuskie)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formularz Wiadomości -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl text-slate-900 shadow-2xl">
+                        <h3 class="text-2xl font-black text-slate-900 mb-6">Napisz Wiadomość</h3>
+                        
+                        <form id="contact-form" class="space-y-4" onsubmit="submitContactForm(event)">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="form-name" class="block text-xs font-bold uppercase text-slate-700 mb-1">Imię i Nazwisko</label>
+                                    <input type="text" id="form-name" required placeholder="np. Jan Kowalski" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                                </div>
+                                <div>
+                                    <label for="form-phone" class="block text-xs font-bold uppercase text-slate-700 mb-1">Numer Telefonu</label>
+                                    <input type="tel" id="form-phone" required placeholder="np. 575 118 176" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="form-service" class="block text-xs font-bold uppercase text-slate-700 mb-1">Interesująca usługa</label>
+                                <select id="form-service" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 bg-white text-sm font-medium">
+                                    <option value="elewacja">Mycie / Malowanie Elewacji</option>
+                                    <option value="dach">Mycie / Malowanie Dachu</option>
+                                    <option value="kostka">Mycie / Impregnacja Kostki Brukowej</option>
+                                    <option value="pakiet">Pakiet Kompleksowy (Wszystkie usługi)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="form-msg" class="block text-xs font-bold uppercase text-slate-700 mb-1">Wiadomość / Lokalizacja (miejscowość)</label>
+                                <textarea id="form-msg" rows="4" required placeholder="Podaj miejscowość oraz orientacyjną powierzchnię w m²..." class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 bg-white text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold py-4 rounded-xl shadow-lg transition transform active:scale-95 text-center flex items-center justify-center gap-2 text-base">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Wyślij Bezpłatne Zapytanie</span>
+                            </button>
+                        </form>
+
+                        <div id="form-alert" class="hidden mt-4 p-4 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-xl font-bold text-center text-sm">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Dziękujemy! Wiadomość została wysłana. Skontaktujemy się telefonicznie!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-800/80 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center text-white text-xl">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+                    <span class="text-2xl font-black text-white tracking-tight">SADOWSKI</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-300 font-medium">
+                    <a href="#uslugi" class="hover:text-brand-400 transition">Usługi</a>
+                    <a href="#efekty" class="hover:text-brand-400 transition">Przed / Po</a>
+                    <a href="#kalkulator" class="hover:text-brand-400 transition">Kalkulator</a>
+                    <a href="#kontakt" class="hover:text-brand-400 transition">Kontakt</a>
+                </div>
+            </div>
+            <div class="pt-8 text-center sm:flex sm:justify-between sm:text-left space-y-2 sm:space-y-0">
+                <p>&copy; 2026 SADOWSKI - Mycie i Malowanie Elewacji, Dachów, Kostki Brukowej. Wszelkie prawa zastrzeżone.</p>
+                <p>Obszar: Zielona Góra, Sulechów, Nowa Sól, Świebodzin, Krosno Odrzańskie.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILNY STICKY BAR NA DOLE EKRANU -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-3 z-50 flex items-center justify-between gap-3 shadow-2xl">
+        <a href="tel:575118176" class="flex-1 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 text-sm active:scale-95 transition">
+            <i class="fa-solid fa-phone text-lg"></i>
+            <span>ZADZWOWŃ: 575 118 176</span>
+        </a>
+        <a href="#kalkulator" class="w-12 h-12 bg-slate-800 text-brand-400 rounded-xl flex items-center justify-center text-xl shrink-0 border border-slate-700">
+            <i class="fa-solid fa-calculator"></i>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIKA INTERAKTYWNA -->
+    <script>
+        // Menu Mobilne
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Interactive Before/After Slider Logic
+        const baContainer = document.getElementById('ba-container');
+        const baBeforeWrapper = baContainer.querySelector('.ba-before-wrapper');
+        const baHandle = baContainer.querySelector('.ba-handle');
+        let isSliding = false;
+
+        function updateSlider(x) {
+            const rect = baContainer.getBoundingClientRect();
+            let pos = x - rect.left;
+            if (pos < 0) pos = 0;
+            if (pos > rect.width) pos = rect.width;
+
+            const percentage = (pos / rect.width) * 100;
+            baBeforeWrapper.style.width = `${percentage}%`;
+            baHandle.style.left = `${percentage}%`;
+        }
+
+        baContainer.addEventListener('mousedown', (e) => { isSliding = true; updateSlider(e.clientX); });
+        window.addEventListener('mouseup', () => { isSliding = false; });
+        window.addEventListener('mousemove', (e) => { if (isSliding) updateSlider(e.clientX); });
+
+        baContainer.addEventListener('touchstart', (e) => { isSliding = true; updateSlider(e.touches[0].clientX); });
+        window.addEventListener('touchend', () => { isSliding = false; });
+        window.addEventListener('touchmove', (e) => { if (isSliding) updateSlider(e.touches[0].clientX); });
+
+        // Kalkulator
+        const areaInput = document.getElementById('calc-area');
+        const areaDisplay = document.getElementById('calc-area-display');
+        const calcResult = document.getElementById('calc-result');
+        const variantSelect = document.getElementById('calc-variant');
+
+        function calculateEstimate() {
+            const area = parseInt(areaInput.value);
+            areaDisplay.textContent = `${area} m²`;
+
+            const type = document.querySelector('input[name="calc-type"]:checked').value;
+            const variant = variantSelect.value;
+
+            let rateMin = 12;
+            let rateMax = 18;
+
+            if (type === 'dach') { rateMin = 16; rateMax = 25; }
+            if (type === 'kostka') { rateMin = 10; rateMax = 16; }
+
+            if (variant === 'impregnacja') {
+                rateMin += 6;
+                rateMax += 10;
+            } else if (variant === 'malowanie') {
+                rateMin += 18;
+                rateMax += 28;
+            }
+
+            const totalMin = Math.round(area * rateMin);
+            const totalMax = Math.round(area * rateMax);
+
+            const fmt = (num) => num.toLocaleString('pl-PL');
+            calcResult.textContent = `ok. ${fmt(totalMin)} - ${fmt(totalMax)} zł`;
+        }
+
+        areaInput.addEventListener('input', calculateEstimate);
+        variantSelect.addEventListener('change', calculateEstimate);
+        document.querySelectorAll('input[name="calc-type"]').forEach(r => r.addEventListener('change', calculateEstimate));
+
+        // Akordeon FAQ
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Formularz
+        function submitContactForm(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('form-alert');
+            const form = document.getElementById('contact-form');
+            alertBox.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => alertBox.classList.add('hidden'), 5000);
+        }
+
+        // Inicjalizacja kalkulatora
+        calculateEstimate();
+    </script>
+</body>
+</html>
