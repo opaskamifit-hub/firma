@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadowski Hydro-Clean | Mycie i Malowanie Elewacji, Dachów, Kostki - Zielona Góra</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        obsidian: {
+                            DEFAULT: '#0B0F19',
+                            card: '#111827',
+                            light: '#1F2937',
+                        },
+                        emerald: {
+                            glow: '#00F5A0',
+                            bright: '#00D9F6',
+                            mint: '#10B981',
+                            deep: '#059669',
+                        },
+                        champagne: {
+                            DEFAULT: '#F59E0B',
+                            light: '#FCD34D',
+                        }
+                    },
+                    boxShadow: {
+                        'emerald-glow': '0 0 35px -5px rgba(0, 245, 160, 0.35)',
+                        'cyan-glow': '0 0 35px -5px rgba(0, 217, 246, 0.35)',
+                        'gold-glow': '0 0 30px -5px rgba(245, 158, 11, 0.3)',
+                        'glass': '0 20px 50px rgba(0, 0, 0, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F3F4F6;
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 245, 160, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 245, 160, 0.25);
+        }
+
+        .gradient-emerald-text {
+            background: linear-gradient(135deg, #00F5A0 0%, #00D9F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-gold-text {
+            background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Pulse Radar */
+        @keyframes radar-pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.4); opacity: 0.2; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .radar-pulse-ring {
+            animation: radar-pulse 2.5s infinite ease-in-out;
+        }
+
+        /* Range Slider Styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            background: #00F5A0;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 245, 160, 0.9);
+            border: 2px solid #ffffff;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00F5A0;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-emerald-glow selection:text-obsidian pb-20 md:pb-0 overflow-x-hidden">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-obsidian via-obsidian-card to-obsidian border-b border-gray-800/80 text-xs py-2.5 px-4 text-gray-300 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1.5 text-emerald-glow font-bold">
+                    <i class="fa-solid fa-location-dot"></i> Zielona Góra i Okolice (+50 km)
+                </span>
+                <span class="hidden sm:inline text-gray-700">|</span>
+                <span class="hidden sm:flex items-center gap-1.5 text-emerald-bright font-medium">
+                    <i class="fa-solid fa-shield-halved"></i> Pisemna Gwarancja & Hydrofobizacja
+                </span>
+            </div>
+            <div class="flex items-center gap-5 font-semibold">
+                <a href="tel:575118176" class="hover:text-emerald-glow transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-emerald-glow"></i> Infolinia: <strong>575 118 176</strong>
+                </a>
+                <span class="text-gray-700">|</span>
+                <a href="mailto:elewacjemycie0909@wp.pl" class="hover:text-emerald-bright transition-colors hidden sm:inline">
+                    <i class="fa-solid fa-envelope text-emerald-bright mr-1"></i> elewacjemycie0909@wp.pl
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 glass-card border-b border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- BRAND LOGO -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-glow via-emerald-bright to-emerald-mint p-0.5 shadow-emerald-glow group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-obsidian rounded-[14px] flex items-center justify-center text-emerald-glow">
+                        <i class="fa-solid fa-droplet text-2xl animate-pulse"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-black text-2xl tracking-tight text-white flex items-center gap-2">
+                        SADOWSKI <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-glow/10 text-emerald-glow border border-emerald-glow/30 uppercase tracking-widest">HYDRO-CLEAN</span>
+                    </span>
+                    <p class="text-[11px] text-gray-400 font-medium tracking-wide">Mycie & Malowanie Elewacji, Dachów, Kostki</p>
+                </div>
+            </a>
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-sm text-gray-300">
+                <a href="#uslugi" class="hover:text-emerald-glow transition-colors">Usługi</a>
+                <a href="#przed-po" class="hover:text-emerald-glow transition-colors">Przed & Po</a>
+                <a href="#kalkulator" class="hover:text-emerald-glow transition-colors">Kalkulator Wyceny</a>
+                <a href="#dlaczego-my" class="hover:text-emerald-glow transition-colors">Gwarancja</a>
+                <a href="#obszar" class="hover:text-emerald-glow transition-colors">Zasięg Działania</a>
+                <a href="#opinie" class="hover:text-emerald-glow transition-colors">Opinie</a>
+                <a href="#kontakt" class="hover:text-emerald-glow transition-colors">Kontakt</a>
+            </nav>
+
+            <!-- CALL CTA -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="tel:575118176" class="flex items-center gap-3 bg-gradient-to-r from-emerald-glow via-emerald-bright to-emerald-mint text-obsidian font-heading font-black px-6 py-3 rounded-xl shadow-emerald-glow hover:scale-[1.03] transition-all">
+                    <i class="fa-solid fa-phone-volume text-lg"></i>
+                    <div class="text-left leading-tight">
+                        <span class="block text-[9px] uppercase tracking-wider font-extrabold opacity-90">Zamów Wizję Lokalną</span>
+                        <span class="text-base font-black tracking-wide">575 118 176</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- MOBILE MENU HAMBURGER -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2.5 text-gray-300 hover:text-white focus:outline-none" aria-label="Otwórz menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-800 bg-obsidian/95 backdrop-blur-2xl px-6 py-6 space-y-3">
+            <a href="#uslugi" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Zakres Usług</a>
+            <a href="#przed-po" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Porównywarka Przed & Po</a>
+            <a href="#kalkulator" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Kalkulator Wyceny</a>
+            <a href="#obszar" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Zielona Góra i Okolice</a>
+            <a href="#opinie" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Opinie Klientów</a>
+            <a href="#kontakt" class="mobile-link block py-2.5 text-base font-semibold text-gray-200 border-b border-gray-800/50">Formularz Kontaktowy</a>
+            <a href="tel:575118176" class="w-full flex items-center justify-center gap-2 bg-emerald-glow text-obsidian font-extrabold py-3.5 rounded-xl mt-4 text-base shadow-emerald-glow">
+                <i class="fa-solid fa-phone"></i> Zadzwoń: 575 118 176
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
+        <!-- Glow Ambient Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-glow/10 rounded-full blur-[160px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-emerald-bright/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <!-- BADGE -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-emerald-glow/40 text-gray-200 text-xs sm:text-sm font-semibold shadow-emerald-glow">
+                        <span class="flex h-2.5 w-2.5 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-glow opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-glow"></span>
+                        </span>
+                        Profesjonalne Czyszczenie i Malowanie Hydrodynamiczne
+                    </div>
+
+                    <!-- HERO TITLE -->
+                    <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
+                        Nowe Życie Twojego Budynku. <br>
+                        <span class="gradient-emerald-text">Czystość, Która Zachwyca.</span>
+                    </h1>
+
+                    <!-- SUBTITLE -->
+                    <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Specjalizujemy się w nisko- i wysokociśnieniowym myciu elewacji, dachów oraz kostki brukowej. <strong class="text-emerald-glow font-semibold">Usuwamy mchy, grzyby i plamy olejowe</strong> z trwałą impregnacją hydrofobową.
+                    </p>
+
+                    <!-- BUTTONS -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="tel:575118176" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-glow via-emerald-bright to-emerald-mint text-obsidian font-heading font-black text-lg px-8 py-4 rounded-xl shadow-emerald-glow hover:scale-105 transition-all">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                            Zamów Bezpłatną Wycenę: 575 118 176
+                        </a>
+                        <a href="#kalkulator" class="w-full sm:w-auto flex items-center justify-center gap-2.5 glass-card hover:bg-obsidian-light text-gray-200 font-heading font-bold text-base px-7 py-4 rounded-xl border border-gray-700 transition-all">
+                            <i class="fa-solid fa-calculator text-emerald-glow"></i>
+                            Kalkulator Kosztów
+                        </a>
+                    </div>
+
+                    <!-- METRICS -->
+                    <div class="pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="font-heading font-black text-2xl sm:text-4xl text-white">500+</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Umytych obiektów</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-black text-2xl sm:text-4xl text-emerald-glow">100%</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Skuteczności BIO</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-black text-2xl sm:text-4xl text-champagne">5 Lat</p>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Gwarancji na malowanie</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO CARD DISPLAY -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card p-6 rounded-3xl border border-gray-700/80 shadow-glass relative group overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-glow/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative h-72 sm:h-80 rounded-2xl overflow-hidden mb-5 border border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80" alt="Praca przy czyszczeniu elewacji" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 bg-obsidian-card/90 backdrop-blur-md p-4 rounded-xl border border-gray-700 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-glow/20 text-emerald-glow flex items-center justify-center">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white">Technologia Gorącowodna 350 BAR</p>
+                                        <p class="text-[11px] text-gray-400">Usuwanie porostów i nalotów</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-black text-emerald-glow bg-emerald-glow/10 px-2.5 py-1 rounded border border-emerald-glow/30">Certyfikat</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs text-gray-300 font-medium">
+                            <div class="flex items-center gap-2 bg-obsidian/80 p-3 rounded-xl border border-gray-800">
+                                <i class="fa-solid fa-circle-check text-emerald-glow"></i>
+                                <span>Chemia bezpieczna BIO</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-obsidian/80 p-3 rounded-xl border border-gray-800">
+                                <i class="fa-solid fa-circle-check text-emerald-glow"></i>
+                                <span>Agregaty hydrodynamiczne</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER COMPARISON SECTION -->
+    <section id="przed-po" class="py-24 relative bg-obsidian-card/50 border-y border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Zobacz Różnicę Gołym Okiem</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black text-white">Efekty "Przed i Po" Czyszczeniu</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Przełączaj pomiędzy usługami i przesuwaj suwak, aby przetestować spektakularne rezultaty.</p>
+            </div>
+
+            <!-- TAB BUTTONS -->
+            <div class="flex justify-center gap-2 sm:gap-4 mb-8">
+                <button type="button" class="tab-btn active px-6 py-3 rounded-xl font-heading font-bold text-xs sm:text-sm bg-emerald-glow text-obsidian shadow-emerald-glow transition-all" data-target="elewacja">
+                    <i class="fa-solid fa-house-chimney mr-1.5"></i> Elewacja
+                </button>
+                <button type="button" class="tab-btn px-6 py-3 rounded-xl font-heading font-bold text-xs sm:text-sm bg-obsidian-light text-gray-300 hover:bg-gray-800 transition-all" data-target="dach">
+                    <i class="fa-solid fa-helmet-safety mr-1.5"></i> Dach
+                </button>
+                <button type="button" class="tab-btn px-6 py-3 rounded-xl font-heading font-bold text-xs sm:text-sm bg-obsidian-light text-gray-300 hover:bg-gray-800 transition-all" data-target="kostka">
+                    <i class="fa-solid fa-border-all mr-1.5"></i> Kostka Brukowa
+                </button>
+            </div>
+
+            <!-- SLIDER CONTAINER -->
+            <div class="max-w-4xl mx-auto">
+                <div id="ba-slider" class="relative h-[350px] sm:h-[500px] rounded-3xl overflow-hidden shadow-glass border border-gray-700/80 select-none cursor-ew-resize">
+                    
+                    <!-- AFTER IMAGE -->
+                    <img id="img-after" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Efekt po czyszczeniu" class="absolute inset-0 w-full h-full object-cover">
+                    <span class="absolute top-5 right-5 bg-emerald-glow/90 text-obsidian font-black text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-lg backdrop-blur-md z-10 shadow-lg">
+                        EFEKT PO RENOWACJI ✨
+                    </span>
+
+                    <!-- BEFORE IMAGE (Clipped) -->
+                    <div id="ba-before-wrap" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-emerald-glow">
+                        <img id="img-before" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Stan przed czyszczeniem" class="absolute inset-0 w-full h-full object-cover max-w-none max-h-none h-[350px] sm:h-[500px]">
+                        <span class="absolute top-5 left-5 bg-obsidian/90 text-gray-300 font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-lg border border-gray-700 backdrop-blur-md">
+                            ZABRUDZENIA PRZED ❌
+                        </span>
+                    </div>
+
+                    <!-- HANDLE -->
+                    <div id="ba-handle" class="absolute top-0 bottom-0 left-1/2 -ml-6 w-12 flex items-center justify-center z-20 pointer-events-none">
+                        <div class="w-12 h-12 rounded-full bg-emerald-glow text-obsidian flex items-center justify-center shadow-emerald-glow border-2 border-white">
+                            <i class="fa-solid fa-arrows-left-right text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-4">
+                    <i class="fa-solid fa-hand-pointer mr-1"></i> Chwyć i przeciągnij suwak na boki, aby ocenić różnicę.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="uslugi" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Kompleksowe Usługi Hydro-Cleanning</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black text-white">Co Możemy Dla Ciebie Zrobić?</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Dostosowujemy ciśnienie, chemię i temperaturę wody indywidualnie do powłoki elewacyjnej i dachowej.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- SERVICE CARD 1 -->
+                <div class="glass-card rounded-3xl p-8 glass-card-hover flex flex-col justify-between relative group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-glow to-obsidian border border-emerald-glow/40 flex items-center justify-center text-emerald-glow text-3xl mb-6 shadow-emerald-glow">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-3">Mycie & Malowanie Elewacji</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Usuwamy czarny nalot, glony, grzyby oraz osady ze skażenia środowiskowego z tynków baranek, silikonowych i akrylowych.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Oprysk biobójczy zabijający mikrostruktury</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Hydrofobizacja powłoki zewnętrznej</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Malowanie elastycznymi farbami fasadowymi</li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full py-3.5 text-center rounded-xl bg-obsidian-light hover:bg-emerald-glow hover:text-obsidian text-gray-200 font-heading font-bold text-xs tracking-wider uppercase transition-all">
+                        Zamów Wycenę <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- SERVICE CARD 2 -->
+                <div class="glass-card rounded-3xl p-8 glass-card-hover flex flex-col justify-between relative group border-emerald-glow/50">
+                    <div class="absolute top-4 right-4">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-obsidian bg-emerald-glow px-3 py-1 rounded-full shadow-emerald-glow">Popularne</span>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-bright to-obsidian border border-emerald-bright/40 flex items-center justify-center text-emerald-bright text-3xl mb-6 shadow-cyan-glow">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-3">Mycie & Malowanie Dachów</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Czyszczenie dachówki ceramicznej, betonowej oraz blachodachówki. Bezpieczne prace na wysokości z zabezpieczeniem alpinistycznym.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-bright"></i> Usuwanie mchu i porostów z łączeń</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-bright"></i> Malowanie hydrodynamiczne (2 warstwy)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-bright"></i> Ochrona antykorozyjna i anty-UV</li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full py-3.5 text-center rounded-xl bg-emerald-glow/20 hover:bg-emerald-glow text-emerald-glow hover:text-obsidian font-heading font-bold text-xs tracking-wider uppercase border border-emerald-glow/40 transition-all">
+                        Zamów Wycenę <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- SERVICE CARD 3 -->
+                <div class="glass-card rounded-3xl p-8 glass-card-hover flex flex-col justify-between relative group">
+                    <div>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-glow to-obsidian border border-emerald-glow/40 flex items-center justify-center text-emerald-glow text-3xl mb-6 shadow-emerald-glow">
+                            <i class="fa-solid fa-border-all"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-3">Mycie & Impregnacja Kostki</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Gorącowodne zmywanie plam po olejach silnikowych, mchu i traw z fug. Uzupełnianie spoin piaskiem kwarcowym oraz impregnacja.
+                        </p>
+                        <ul class="space-y-2.5 text-xs text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Usuwanie trudnych plam ropopochodnych</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Piaskowanie i spoinowanie fug</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-glow"></i> Efekt "Mokrej Kostki" na życzenie</li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full py-3.5 text-center rounded-xl bg-obsidian-light hover:bg-emerald-glow hover:text-obsidian text-gray-200 font-heading font-bold text-xs tracking-wider uppercase transition-all">
+                        Zamów Wycenę <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALCULATOR 4.0 SECTION -->
+    <section id="kalkulator" class="py-24 relative bg-obsidian-card/60 border-y border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Przejrzyste Szacunki</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black text-white">Konfigurator Kosztów Online</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Sprawdź orientacyjną cenę czyszczenia lub malowania w 30 sekund.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-card p-8 sm:p-12 rounded-3xl border border-gray-700 shadow-glass">
+                <div class="space-y-8">
+                    
+                    <!-- STEP 1: SERVICE TYPE -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-200 mb-4">1. Wybierz rodzaj usługi:</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <button type="button" class="calc-btn active p-4 rounded-2xl border border-emerald-glow bg-emerald-glow/10 text-white font-semibold text-xs sm:text-sm text-center flex flex-col items-center gap-2 transition-all" data-rate="14">
+                                <i class="fa-solid fa-house-chimney text-emerald-glow text-xl"></i>
+                                <span>Mycie Elewacji</span>
+                            </button>
+                            <button type="button" class="calc-btn p-4 rounded-2xl border border-gray-800 bg-obsidian/80 text-gray-400 font-semibold text-xs sm:text-sm text-center flex flex-col items-center gap-2 transition-all" data-rate="32">
+                                <i class="fa-solid fa-paint-roller text-emerald-bright text-xl"></i>
+                                <span>Malowanie Elewacji</span>
+                            </button>
+                            <button type="button" class="calc-btn p-4 rounded-2xl border border-gray-800 bg-obsidian/80 text-gray-400 font-semibold text-xs sm:text-sm text-center flex flex-col items-center gap-2 transition-all" data-rate="22">
+                                <i class="fa-solid fa-helmet-safety text-emerald-bright text-xl"></i>
+                                <span>Mycie/Malowanie Dachu</span>
+                            </button>
+                            <button type="button" class="calc-btn p-4 rounded-2xl border border-gray-800 bg-obsidian/80 text-gray-400 font-semibold text-xs sm:text-sm text-center flex flex-col items-center gap-2 transition-all" data-rate="12">
+                                <i class="fa-solid fa-border-all text-emerald-glow text-xl"></i>
+                                <span>Mycie Kostki</span>
+                            </button>
+                            <button type="button" class="calc-btn p-4 rounded-2xl border border-gray-800 bg-obsidian/80 text-gray-400 font-semibold text-xs sm:text-sm text-center flex flex-col items-center gap-2 transition-all col-span-2 sm:col-span-2" data-rate="38">
+                                <i class="fa-solid fa-layer-group text-champagne text-xl"></i>
+                                <span>Pakiet Kompleksowy (Elewacja + Dach + Kostka)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: AREA SLIDER -->
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <label class="text-sm font-bold text-gray-200">2. Powierzchnia obiektu ($m^2$):</label>
+                            <span class="font-heading font-black text-2xl text-emerald-glow" id="calc-area-val">150 m²</span>
+                        </div>
+                        <input type="range" id="calc-range" min="30" max="1000" step="10" value="150" class="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-glow">
+                        <div class="flex justify-between text-xs text-gray-500 mt-2 font-medium">
+                            <span>30 m²</span>
+                            <span>500 m²</span>
+                            <span>1000 m²</span>
+                        </div>
+                    </div>
+
+                    <!-- ESTIMATED DISPLAY BOX -->
+                    <div class="bg-obsidian/90 p-6 sm:p-8 rounded-2xl border border-gray-800 text-center space-y-2">
+                        <p class="text-xs text-gray-400 font-extrabold uppercase tracking-widest">Szacowany Koszt Usługi</p>
+                        <div class="font-heading font-black text-4xl sm:text-6xl text-emerald-glow" id="calc-total">
+                            od 2,100 zł
+                        </div>
+                        <p class="text-xs text-gray-500">Ostateczna cena zależy od stopnia zabrudzenia i wysokości budynku. Wizja lokalna GRATIS!</p>
+                    </div>
+
+                    <!-- PREFILL BUTTON -->
+                    <div class="text-center">
+                        <a href="#kontakt" onclick="prefillForm()" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-gradient-to-r from-emerald-glow via-emerald-bright to-emerald-mint text-obsidian font-heading font-black text-base px-9 py-4 rounded-xl shadow-emerald-glow hover:scale-105 transition-all">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Przenieś Dane Do Bezpłatnego Zgłoszenia
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COVERAGE AREA & MAP SECTION -->
+    <section id="obszar" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-gray-700 grid lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Baza: Zielona Góra</span>
+                    <h3 class="font-heading text-3xl sm:text-4xl font-black text-white">Działamy w Zielonej Górze i Promieniu 50 km</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Zapewniamy szybki czas reakcji i bezpłatny dojazd na oględziny i próbkę czyszczenia w następujących miejscowościach i okolicach:
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-glow text-sm"></i> Zielona Góra
+                        </div>
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-bright text-sm"></i> Sulechów
+                        </div>
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-bright text-sm"></i> Nowa Sól
+                        </div>
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-bright text-sm"></i> Świebodzin
+                        </div>
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-bright text-sm"></i> Krosno Odrzańskie
+                        </div>
+                        <div class="bg-obsidian p-3.5 rounded-xl border border-gray-800 flex items-center gap-2.5 text-xs font-bold text-gray-200">
+                            <i class="fa-solid fa-location-dot text-emerald-bright text-sm"></i> Żary & Żagań
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RADAR DISPLAY -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full border border-emerald-glow/40 flex items-center justify-center bg-obsidian/90 shadow-emerald-glow">
+                        <div class="absolute inset-0 rounded-full border border-emerald-glow/30 radar-pulse-ring"></div>
+                        <div class="w-40 h-40 rounded-full border border-emerald-bright/50 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-full bg-emerald-glow/20 border border-emerald-glow flex items-center justify-center text-emerald-glow font-bold text-xs text-center p-2">
+                                Centrum: Zielona Góra
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="opinie" class="py-24 relative bg-obsidian-card/40 border-y border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Opinie Klientów</span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black text-white">Co Mówią O Naszych Usługach?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-7 rounded-2xl border border-gray-800 space-y-4">
+                    <div class="flex text-champagne text-sm gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "Elewacja naszego domu w Zielonej Górze miała ponad 10 lat i była zielona od mchu. Pan Sadowski usunął wszystko w jeden dzień. Po impregnacji ściany wyglądają jak nowo otynkowane. Polecam!"
+                    </p>
+                    <div class="pt-2 border-t border-gray-800/60 flex items-center justify-between">
+                        <span class="font-bold text-xs text-white">Marek K.</span>
+                        <span class="text-[11px] text-gray-500">Zielona Góra (Przylep)</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-7 rounded-2xl border border-gray-800 space-y-4">
+                    <div class="flex text-champagne text-sm gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "Zamówiłam mycie i malowanie dachu w Sulechowie. Bardzo profesjonalne podejście, zabezpieczenie szyb i podjazdu. Dach odzyskał swój głęboki kolor. Super kontakt telefoniczny!"
+                    </p>
+                    <div class="pt-2 border-t border-gray-800/60 flex items-center justify-between">
+                        <span class="font-bold text-xs text-white">Anna W.</span>
+                        <span class="text-[11px] text-gray-500">Sulechów</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-7 rounded-2xl border border-gray-800 space-y-4">
+                    <div class="flex text-champagne text-sm gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "Zmycie plam olejowych z kostki przed myjnią i domem zrobione wzorowo. Dodatkowo uzupełniony piasek w fugach. Szybki czas realizacji i uczciwa wycena na miejscu."
+                    </p>
+                    <div class="pt-2 border-t border-gray-800/60 flex items-center justify-between">
+                        <span class="font-bold text-xs text-white">Piotr T.</span>
+                        <span class="text-[11px] text-gray-500">Nowa Sól</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="kontakt" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- CONTACT INFO -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-glow">Bezpośrednia Łączność</span>
+                        <h2 class="font-heading text-3xl sm:text-5xl font-black text-white mt-2">Skontaktuj Się Z Nami</h2>
+                        <p class="text-gray-400 text-sm mt-3">Szybki kontakt telefoniczny oraz e-mailowy. Odpowiadamy błyskawicznie!</p>
+                    </div>
+
+                    <a href="tel:575118176" class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-5 hover:border-emerald-glow transition-all group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-glow/20 text-emerald-glow flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform shadow-emerald-glow">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest font-bold">Telefon Komórkowy</p>
+                            <p class="text-2xl font-heading font-black text-white group-hover:text-emerald-glow transition-colors">575 118 176</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:elewacjemycie0909@wp.pl" class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-5 hover:border-emerald-bright transition-all group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-bright/20 text-emerald-bright flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform shadow-cyan-glow">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest font-bold">Napisz Do Nas E-Mail</p>
+                            <p class="text-base font-bold text-white group-hover:text-emerald-bright transition-colors">elewacjemycie0909@wp.pl</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- FORM CONTAINER -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl border border-gray-700 shadow-glass">
+                        <h3 class="font-heading font-bold text-2xl text-white mb-2">Darmowa Wycena i Oględziny</h3>
+                        <p class="text-xs text-gray-400 mb-6">Wypełnij formularz – oddzwonimy z propozycją dogodnego terminu.</p>
+
+                        <form id="quote-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 mb-1.5">Imię i Nazwisko</label>
+                                    <input type="text" required placeholder="np. Jan Kowalski" class="w-full bg-obsidian border border-gray-800 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-emerald-glow">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 mb-1.5">Numer Telefonu</label>
+                                    <input type="tel" required placeholder="np. 500 000 000" class="w-full bg-obsidian border border-gray-800 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-emerald-glow">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-1.5">Wybór Usługi</label>
+                                <select id="form-service" class="w-full bg-obsidian border border-gray-800 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-emerald-glow">
+                                    <option>Mycie / Malowanie Elewacji</option>
+                                    <option>Mycie / Malowanie Dachu</option>
+                                    <option>Mycie / Impregnacja Kostki Brukowej</option>
+                                    <option>Pakiet Kompleksowy</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-1.5">Miejscowość i Informacje Dodatkowe</label>
+                                <textarea id="form-notes" rows="4" placeholder="Zielona Góra, dom jednorodzinny ok 150m2..." class="w-full bg-obsidian border border-gray-800 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-emerald-glow"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-emerald-glow via-emerald-bright to-emerald-mint text-obsidian font-heading font-black text-base py-4 rounded-xl shadow-emerald-glow hover:scale-[1.01] transition-all">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> Wyślij Prośbę o Bezpłatną Wycenę
+                            </button>
+
+                            <div id="form-success" class="hidden p-4 bg-emerald-glow/20 border border-emerald-glow rounded-xl text-emerald-glow text-xs text-center font-bold">
+                                Dziękujemy! Zgłoszenie zostało wysłane. Skontaktujemy się z Tobą telefonicznie!
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian border-t border-gray-800 py-10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+            <p>© 2026 Sadowski Hydro-Clean. Wszelkie prawa zastrzeżone. Zielona Góra.</p>
+            <p>Usługi Elewacyjne, Malowanie Dachów & Mycie Kostki Brukowej</p>
+        </div>
+    </footer>
+
+    <!-- LIVE FLOATING SOCIAL PROOF TOAST NOTIFICATION -->
+    <div id="toast-notification" class="fixed bottom-24 left-4 z-50 glass-card border border-emerald-glow/40 p-4 rounded-2xl shadow-emerald-glow max-w-xs transition-all duration-500 transform translate-y-20 opacity-0 hidden sm:block">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-glow/20 text-emerald-glow flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-check-double text-base"></i>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-white" id="toast-title">Nowe Zgłoszenie Wyceny!</p>
+                <p class="text-[11px] text-gray-400" id="toast-body">Zielona Góra - Mycie Elewacji 160m²</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE FLOATING CALL BUTTON -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 sm:hidden bg-obsidian/95 backdrop-blur-lg border-t border-gray-800 p-3">
+        <a href="tel:575118176" class="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-glow via-emerald-bright to-emerald-mint text-obsidian font-heading font-black py-3.5 rounded-xl text-base shadow-emerald-glow">
+            <i class="fa-solid fa-phone"></i> Zadzwoń: 575 118 176
+        </a>
+    </div>
+
+    <script>
+        // Mobile Navigation Drawer Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+        }
+
+        // Before / After Slider Logic
+        const baSlider = document.getElementById('ba-slider');
+        const baBeforeWrap = document.getElementById('ba-before-wrap');
+        const baHandle = document.getElementById('ba-handle');
+        const imgBefore = document.getElementById('img-before');
+        const imgAfter = document.getElementById('img-after');
+
+        const imageSets = {
+            elewacja: {
+                before: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+            },
+            dach: {
+                before: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+            },
+            kostka: {
+                before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+            }
+        };
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('bg-emerald-glow', 'text-obsidian', 'shadow-emerald-glow');
+                    b.classList.add('bg-obsidian-light', 'text-gray-300');
+                });
+                btn.classList.add('bg-emerald-glow', 'text-obsidian', 'shadow-emerald-glow');
+                btn.classList.remove('bg-obsidian-light', 'text-gray-300');
+
+                const target = btn.dataset.target;
+                if (imageSets[target]) {
+                    imgBefore.src = imageSets[target].before;
+                    imgAfter.src = imageSets[target].after;
+                }
+            });
+        });
+
+        if (baSlider && baBeforeWrap && baHandle) {
+            let dragging = false;
+            const updateBA = (x) => {
+                const rect = baSlider.getBoundingClientRect();
+                let pos = x - rect.left;
+                if (pos < 0) pos = 0;
+                if (pos > rect.width) pos = rect.width;
+                const pct = (pos / rect.width) * 100;
+                baBeforeWrap.style.width = `${pct}%`;
+                baHandle.style.left = `${pct}%`;
+            };
+
+            baSlider.addEventListener('mousedown', (e) => { dragging = true; updateBA(e.clientX); });
+            window.addEventListener('mouseup', () => dragging = false);
+            window.addEventListener('mousemove', (e) => { if (dragging) updateBA(e.clientX); });
+
+            baSlider.addEventListener('touchstart', (e) => { dragging = true; updateBA(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => dragging = false);
+            window.addEventListener('touchmove', (e) => { if (dragging) updateBA(e.touches[0].clientX); });
+        }
+
+        // Calculator 4.0 Logic
+        const calcBtns = document.querySelectorAll('.calc-btn');
+        const calcRange = document.getElementById('calc-range');
+        const calcAreaVal = document.getElementById('calc-area-val');
+        const calcTotal = document.getElementById('calc-total');
+        let activeRate = 14;
+
+        function updateCalc() {
+            const area = parseInt(calcRange.value, 10);
+            calcAreaVal.textContent = `${area} m²`;
+            const total = area * activeRate;
+            calcTotal.textContent = `od ${total.toLocaleString('pl-PL')} zł`;
+        }
+
+        calcBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                calcBtns.forEach(b => {
+                    b.classList.remove('border-emerald-glow', 'bg-emerald-glow/10', 'text-white');
+                    b.classList.add('border-gray-800', 'bg-obsidian/80', 'text-gray-400');
+                });
+                btn.classList.add('border-emerald-glow', 'bg-emerald-glow/10', 'text-white');
+                btn.classList.remove('border-gray-800', 'bg-obsidian/80', 'text-gray-400');
+                activeRate = parseFloat(btn.dataset.rate);
+                updateCalc();
+            });
+        });
+
+        if (calcRange) calcRange.addEventListener('input', updateCalc);
+
+        function prefillForm() {
+            const notes = document.getElementById('form-notes');
+            if (notes) {
+                notes.value = `Interesuje mnie usługa dla powierzchni ok. ${calcRange.value} m2. Szacunek cenowy z kalkulatora. Proszę o kontakt.`;
+            }
+        }
+
+        // Quote Form Handling
+        const qForm = document.getElementById('quote-form');
+        const qSuccess = document.getElementById('form-success');
+        if (qForm && qSuccess) {
+            qForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                qSuccess.classList.remove('hidden');
+                qForm.reset();
+                setTimeout(() => qSuccess.classList.add('hidden'), 6000);
+            });
+        }
+
+        // Live Social Proof Toast Notifications Cycle
+        const notifications = [
+            { title: "Sulechów", text: "Zapytanie o wycenę malowania dachu 220 m²" },
+            { title: "Zielona Góra (Chynów)", text: "Zamówiono czyszczenie elewacji i impregnację" },
+            { title: "Nowa Sól", text: "Rezerwacja terminu mycia kostki brukowej" },
+            { title: "Świebodzin", text: "Wizja lokalna umówiona na jutro" }
+        ];
+
+        let notifIndex = 0;
+        const toast = document.getElementById('toast-notification');
+        const toastTitle = document.getElementById('toast-title');
+        const toastBody = document.getElementById('toast-body');
+
+        function showToast() {
+            if (!toast) return;
+            const current = notifications[notifIndex];
+            toastTitle.textContent = current.title;
+            toastBody.textContent = current.text;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+
+            notifIndex = (notifIndex + 1) % notifications.length;
+        }
+
+        // Trigger first toast after 4s, then repeat every 14s
+        setTimeout(() => {
+            showToast();
+            setInterval(showToast, 14000);
+        }, 4000);
+    </script>
+</body>
+</html>
