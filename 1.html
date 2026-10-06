@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KasynoBonusy2026 - Najlepsze Kasyna & Free Spiny Bez Depozytu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            glow: '#ffd700'
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            glow: '#00ff88'
+                        },
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                            600: '#374151'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font Inter & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS for specific glows and scrollbars -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff2a3 0%, #ffd700 50%, #cca100 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.25);
+        }
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(234, 179, 8, 0.15);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-dark-900">
+
+    <!-- Responsible Gaming Top Bar -->
+    <div class="bg-dark-800 border-b border-dark-700 py-1.5 px-4 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+                <span class="bg-red-600/20 text-red-400 font-bold px-1.5 py-0.5 rounded border border-red-500/30">18+</span>
+                <span>Hazard stwarza ryzyko uzależnienia. Graj odpowiedzialnie.</span>
+            </div>
+            <div class="flex items-center gap-4 text-gray-400 text-xs">
+                <a href="#responsible-gaming" class="hover:text-gold-400 transition-colors"><i class="fa-solid fa-hand-holding-heart mr-1"></i> Pomoc dla graczy</a>
+                <span class="hidden sm:inline">•</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-shield-halved mr-1 text-emerald-400"></i> Zweryfikowane Promocje 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-dark-900/90 backdrop-blur-md border-b border-dark-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-900 shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-dice-five text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-extrabold tracking-wider gold-gradient-text">SPIN<span class="text-white">POLSKA</span></span>
+                            <span class="block text-[10px] tracking-widest text-emerald-400 uppercase font-semibold">Free Spiny Bez Depozytu</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#kasyna" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-800 transition-all">Ranking Kasyn</a>
+                    <a href="#kasyna" onclick="filterCategory('free-spins')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-800 transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-bolt text-gold-400"></i> Free Spiny
+                    </a>
+                    <a href="#kasyna" onclick="filterCategory('no-deposit')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-800 transition-all">Bez Depozytu</a>
+                    <a href="#faq" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-800 transition-all">FAQ / Poradniki</a>
+                </nav>
+
+                <!-- CTA Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#kasyna" class="px-5 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-dark-900 shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-gift text-lg"></i> Odbierz Bonus
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-700 px-4 pt-2 pb-4 space-y-2">
+            <a href="#kasyna" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-700">Ranking Kasyn</a>
+            <a href="#kasyna" onclick="filterCategory('free-spins')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-700">Free Spiny Bez Depozytu</a>
+            <a href="#kasyna" onclick="filterCategory('crypto')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-700">Krypto Kasyna</a>
+            <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:text-gold-400 hover:bg-dark-700">FAQ & Poradniki</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-12 lg:py-20 overflow-hidden border-b border-dark-700/50">
+        <!-- Background Decorative Glows -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gold-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/4 right-10 w-[300px] h-[300px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-semibold mb-6 animate-pulse">
+                    <i class="fa-solid fa-fire text-amber-500"></i> Aktualne Promocje na Październik 2026
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                    Najlepsze Kasyna Online & <br class="hidden sm:inline">
+                    <span class="gold-gradient-text">Free Spiny Bez Depozytu</span>
+                </h1>
+                
+                <p class="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
+                    Odbierz darmowe obroty za samą rejestrację. Testujemy i weryfikujemy legalne kasyna internetowe dla Polaków, aby zapewnić Ci szybkie wypłaty i bezpieczną grę.
+                </p>
+
+                <!-- Key Metrics Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-8 text-center">
+                    <div class="bg-dark-800/80 backdrop-blur border border-dark-700 p-3 rounded-xl">
+                        <div class="text-xl sm:text-2xl font-black text-gold-400">1200+</div>
+                        <div class="text-xs text-gray-400">Free Spinów Dziś</div>
+                    </div>
+                    <div class="bg-dark-800/80 backdrop-blur border border-dark-700 p-3 rounded-xl">
+                        <div class="text-xl sm:text-2xl font-black text-emerald-400">100%</div>
+                        <div class="text-xs text-gray-400">Bezpieczne Licencje</div>
+                    </div>
+                    <div class="bg-dark-800/80 backdrop-blur border border-dark-700 p-3 rounded-xl">
+                        <div class="text-xl sm:text-2xl font-black text-blue-400">BLIK</div>
+                        <div class="text-xs text-gray-400">Błyskawiczne Wpłaty</div>
+                    </div>
+                    <div class="bg-dark-800/80 backdrop-blur border border-dark-700 p-3 rounded-xl">
+                        <div class="text-xl sm:text-2xl font-black text-purple-400">0 zł</div>
+                        <div class="text-xs text-gray-400">Koszt Rejestracji</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Offers & Interactive Section -->
+    <main id="kasyna" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
+        
+        <!-- Controls Bar: Filter Tabs, Search & Sort -->
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl p-4 sm:p-5 mb-8 shadow-xl">
+            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                
+                <!-- Category Buttons / Tabs -->
+                <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto justify-center lg:justify-start" id="filter-tabs">
+                    <button onclick="filterCategory('all')" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gold-500 text-dark-900 shadow-md transition-all">
+                        <i class="fa-solid fa-border-all mr-1.5"></i> Wszystkie
+                    </button>
+                    <button onclick="filterCategory('no-deposit')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dark-700 text-gray-300 hover:text-white hover:bg-dark-600 transition-all">
+                        <i class="fa-solid fa-gift text-gold-400 mr-1.5"></i> Bez Depozytu
+                    </button>
+                    <button onclick="filterCategory('free-spins')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dark-700 text-gray-300 hover:text-white hover:bg-dark-600 transition-all">
+                        <i class="fa-solid fa-arrows-rotate text-emerald-400 mr-1.5"></i> Free Spiny
+                    </button>
+                    <button onclick="filterCategory('crypto')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dark-700 text-gray-300 hover:text-white hover:bg-dark-600 transition-all">
+                        <i class="fa-brands fa-bitcoin text-amber-400 mr-1.5"></i> Krypto Kasyna
+                    </button>
+                    <button onclick="filterCategory('new')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-dark-700 text-gray-300 hover:text-white hover:bg-dark-600 transition-all">
+                        <i class="fa-solid fa-sparkles text-purple-400 mr-1.5"></i> Nowe Kasyna
+                    </button>
+                </div>
+
+                <!-- Search Input & Sorting Controls -->
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+                    <!-- Search Input -->
+                    <div class="relative w-full sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                        <input type="text" id="search-input" placeholder="Szukaj kasyna lub gry..." class="w-full bg-dark-900 border border-dark-700 text-gray-200 text-sm rounded-xl pl-9 pr-4 py-2 focus:outline-none focus:border-gold-500 transition-colors">
+                    </div>
+
+                    <!-- Sort Select Dropdown -->
+                    <div class="relative w-full sm:w-auto">
+                        <select id="sort-select" onchange="sortCasinos()" class="w-full sm:w-auto bg-dark-900 border border-dark-700 text-gray-200 text-sm rounded-xl px-4 py-2 focus:outline-none focus:border-gold-500 transition-colors cursor-pointer appearance-none pr-8">
+                            <option value="rating">Najwyższa Ocena</option>
+                            <option value="spins">Najwięcej Free Spinów</option>
+                            <option value="newest">Najnowsze Oferty</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Casino Cards Container -->
+        <div id="casino-list" class="space-y-4">
+            <!-- Cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Empty State Message (Hidden by default) -->
+        <div id="no-results" class="hidden text-center py-16 bg-dark-800/50 rounded-2xl border border-dark-700">
+            <i class="fa-solid fa-ghost text-4xl text-gray-600 mb-3"></i>
+            <h3 class="text-lg font-bold text-gray-300">Brak wyników wyszukiwania</h3>
+            <p class="text-sm text-gray-500">Spróbuj zmienić słowa kluczowe lub wybierz inną kategorię.</p>
+        </div>
+    </main>
+
+    <!-- How to claim bonuses Info Section -->
+    <section class="bg-dark-800/60 border-y border-dark-700/60 py-12 my-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-extrabold text-center mb-8 gold-gradient-text">Jak Odebrać Free Spiny Bez Depozytu w 3 Krokach?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-dark-900 border border-dark-700 rounded-2xl p-6 relative">
+                    <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/30 text-gold-400 flex items-center justify-center font-bold text-lg mb-4">1</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Wybierz Ofertę z Listy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Przejrzyj nasz zweryfikowany ranking i kliknij przycisk „Odbierz Bonus” przy kasynie, które oferuje darmowe spiny.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-dark-900 border border-dark-700 rounded-2xl p-6 relative">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-lg mb-4">2</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Zarejestruj Konto</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Wypełnij prosty formularz rejestracyjny. Jeśli podaliśmy kod promocyjny, wpisz go w odpowiednim polu podczas zakłada konta.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-dark-900 border border-dark-700 rounded-2xl p-6 relative">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold text-lg mb-4">3</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Graj i Wypłacaj Wygrane</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Otwórz grę objętą promocją (np. Book of Dead). Twoje free spiny będą czekały automatycznie. Obróć wygraną i wypłać gotówkę!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Najczęściej Zadawane Pytania (FAQ)</h2>
+            <p class="text-gray-400 text-sm">Wszystko, co musisz wiedzieć o promocjach i darmowych spinach bez depozytu.</p>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+            <!-- FAQ Item 1 -->
+            <div class="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden transition-colors">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-gray-200 hover:text-gold-400 focus:outline-none">
+                    <span>Czy free spiny bez depozytu są naprawdę darmowe?</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="hidden px-5 pb-5 text-sm text-gray-400 border-t border-dark-700/50 pt-3 leading-relaxed">
+                    Tak! Promocje bez depozytu nie wymagają wpłacania własnych środków. Wystarczy zarejestrować nowe konto i zweryfikować adres e-mail lub numer telefonu. Wygrane z darmowych spinów trafiają na Twoje saldo bonusowe.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden transition-colors">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-gray-200 hover:text-gold-400 focus:outline-none">
+                    <span>Co to jest wymóg obrotu (wager)?</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="hidden px-5 pb-5 text-sm text-gray-400 border-t border-dark-700/50 pt-3 leading-relaxed">
+                    Wymóg obrotu (np. x30) określa, ile razy musisz postawić wygraną kwotę z free spinów w kasynie, zanim będziesz mógł ją wypłacić na swoje konto bankowe lub portfel elektroniczny.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden transition-colors">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-gray-200 hover:text-gold-400 focus:outline-none">
+                    <span>Jakie są najpopularniejsze metody płatności w kasynach?</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="hidden px-5 pb-5 text-sm text-gray-400 border-t border-dark-700/50 pt-3 leading-relaxed">
+                    Większość polecanych przez nas kasyn obsługuje polskie szybkie płatności BLIK, karty Visa/Mastercard, e-portfele (Skrill, Neteller, Mifinity, Revolut) oraz kryptowaluty (Bitcoin, USDT, Ethereum).
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden transition-colors">
+                <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-gray-200 hover:text-gold-400 focus:outline-none">
+                    <span>Czy mogę założyć więcej niż jedno konto w jednym kasynie?</span>
+                    <i class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="hidden px-5 pb-5 text-sm text-gray-400 border-t border-dark-700/50 pt-3 leading-relaxed">
+                    Nie. Wszystkie legalne kasyna ściśle przestrzegają zasady jednego konta na osobę, gospodarstwo domowe i adres IP. Posiadanie wielu kont grozi zablokowaniem środków i konta.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsible Gaming Warning Section -->
+    <section id="responsible-gaming" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 my-6">
+        <div class="bg-red-950/20 border border-red-900/40 rounded-2xl p-6 text-center sm:text-left flex flex-col sm:flex-row items-center gap-6">
+            <div class="w-16 h-16 rounded-full bg-red-600/20 border border-red-500/30 flex-shrink-0 flex items-center justify-center text-red-500 text-2xl font-black">
+                18+
+            </div>
+            <div class="space-y-1">
+                <h3 class="text-base font-bold text-red-400">Graj Odpowiedzialnie</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Gry hazardowe mogą uzależniać. Pamiętaj, że promocje i darmowe spiny służą wyłącznie do celów rozrywkowych. Nigdy nie traktuj hazardu jako sposobu na zarabianie pieniędzy. Graj wyłącznie za środki, na których stratę możesz sobie pozwolić. Jeśli potrzebujesz pomocy, skontaktuj się z instytucjami oferującymi wsparcie w zakresie uzależnienia od hazardu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-800 border-t border-dark-700 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-sm text-gray-400">
+                <!-- Col 1: About -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-dice-five text-gold-400 text-xl"></i>
+                        <span class="text-lg font-bold text-white">SPINPOLSKA</span>
+                    </div>
+                    <p class="text-xs leading-relaxed text-gray-400">
+                        Niezależny portal z recenzjami kasyn online oraz aktualną listą darmowych spinów i bonusów bez depozytu.
+                    </p>
+                </div>
+
+                <!-- Col 2: Fast Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">Szybkie Linki</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#kasyna" class="hover:text-gold-400 transition-colors">Ranking Kasyn 2026</a></li>
+                        <li><a href="#kasyna" onclick="filterCategory('no-deposit')" class="hover:text-gold-400 transition-colors">Free Spiny Bez Depozytu</a></li>
+                        <li><a href="#kasyna" onclick="filterCategory('crypto')" class="hover:text-gold-400 transition-colors">Kasyna Kryptowalutowe</a></li>
+                        <li><a href="#faq" class="hover:text-gold-400 transition-colors">Najczęściej Zadawane Pytania</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Popular Providers -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">Popularni Dostawcy</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li>Pragmatic Play (Gates of Olympus)</li>
+                        <li>Play'n GO (Book of Dead)</li>
+                        <li>Hacksaw Gaming</li>
+                        <li>Evolution Gaming</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">Informacje Legalne</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-2">
+                        Prezentowane oferty mogą ulec zmianie. Portal powiązany jest z programami partnerskimi i może otrzymywać prowizję za przekierowania.
+                    </p>
+                    <span class="text-[11px] text-gray-400">© 2026 SpinPolska. Wszelkie prawa zastrzeżone.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Casino Review / Details -->
+    <div id="review-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-lg bg-dark-700/50 hover:bg-dark-700">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Dynamic Modal Content populated by JS -->
+            <div id="modal-content">
+                <!-- JS Inject -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast for Copying Promo Codes -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-emerald-500 text-dark-900 font-bold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 text-sm border border-emerald-400">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-message">Kod skopiowany do schowka!</span>
+    </div>
+
+    <!-- JavaScript Logic & Casino Data -->
+    <script>
+        // Data Store for Casinos
+        const casinoData = [
+            {
+                id: 1,
+                name: "Vulkan Vegas",
+                logo: "🎰",
+                rating: 4.9,
+                reviewsCount: 1240,
+                badges: ["EKSKLUZYWNE", "BEZ DEPOZYTU", "SZYBKIE WYPŁATY"],
+                offerTitle: "50 Free Spinów Bez Depozytu",
+                gameName: "Book of Dead",
+                wager: "x30",
+                minDeposit: "40 PLN",
+                promoCode: "SPINPOLSKA50",
+                categories: ["no-deposit", "free-spins"],
+                affiliateLink: "https://example.com/vulkan-vegas-aff",
+                isNew: false,
+                spinsCount: 50,
+                paymentMethods: ["BLIK", "Visa", "Mastercard", "Skrill", "MiFinity", "BTC"],
+                pros: ["Natychmiastowe darmowe spiny po weryfikacji SMS", "Szybkie wypłaty środków przez BLIK", "Ponad 4000 gier w ofercie"],
+                cons: ["Wymóg obrotu x30 w ciągu 5 dni"],
+                licence: "Curacao eGaming (No. 8048/JAZ)",
+                description: "Vulkan Vegas to jedno z najbardziej zaufanych kasyn dla polskich graczy. Oferuje bogaty pakiet powitalny oraz dedykowaną aplikację mobilną."
+            },
+            {
+                id: 2,
+                name: "Verde Casino",
+                logo: "🌿",
+                rating: 4.8,
+                reviewsCount: 890,
+                badges: ["BEZ DEPOZYTU", "NOWE"],
+                offerTitle: "100 Free Spinów za Rejestrację",
+                gameName: "Big Bass Bonanza",
+                wager: "x25",
+                minDeposit: "50 PLN",
+                promoCode: "VERDESPIN",
+                categories: ["no-deposit", "free-spins", "new"],
+                affiliateLink: "https://example.com/verde-casino-aff",
+                isNew: true,
+                spinsCount: 100,
+                paymentMethods: ["BLIK", "Revolut", "Visa", "Crypto", "Paysafecard"],
+                pros: ["Bardzo niski wymóg obrotu (tylko x25)", "Obsługa wygranych w PLN bez przewalutowania", "Świetny interfejs na telefony"],
+                cons: ["Limit czasowy na wykorzystanie spinów to 3 dni"],
+                licence: "Curacao Gaming License",
+                description: "Verde Casino wyróżnia się nowoczesnym designem oraz niezwykle atrakcyjnymi promocjami tygodniowymi i bonusem bez depozytu."
+            },
+            {
+                id: 3,
+                name: "BC.Game",
+                logo: "🪙",
+                rating: 4.9,
+                reviewsCount: 2100,
+                badges: ["KRYPTO KASYNA", "NATYCHMIASTOWA WYPŁATA"],
+                offerTitle: "180% Bonus od Depozytu + 50 Spinów",
+                gameName: "Sweet Bonanza",
+                wager: "x20",
+                minDeposit: "20 USDT",
+                promoCode: "CRYPTO2026",
+                categories: ["crypto", "free-spins"],
+                affiliateLink: "https://example.com/bcgame-aff",
+                isNew: false,
+                spinsCount: 50,
+                paymentMethods: ["Bitcoin", "USDT", "Ethereum", "Dogecoin", "BLIK (via Crypto)"],
+                pros: ["Anonimowa rejestracja bez zbędnych formalności", "Wypłaty w kryptowalutach poniżej 5 minut", "Unikalne gry własnej produkcji (BC Originals)"],
+                cons: ["Głównie ukierunkowane na płatności kryptowalutowe"],
+                licence: "Curacao Interactive Licensing N.V.",
+                description: "BC.Game to lider w branży krypto kasyn. Oferuje nieograniczone limity wypłat, koło fortuny z darmowymi nagrodami i turnieje na żywo."
+            },
+            {
+                id: 4,
+                name: "Ice Casino",
+                logo: "❄️",
+                rating: 4.7,
+                reviewsCount: 1530,
+                badges: ["POPULARNE", "BEZ DEPOZYTU"],
+                offerTitle: "60 Free Spinów na Ice Mania",
+                gameName: "Ice Mania",
+                wager: "x35",
+                minDeposit: "30 PLN",
+                promoCode: "ICEBONUS",
+                categories: ["no-deposit", "free-spins"],
+                affiliateLink: "https://example.com/icecasino-aff",
+                isNew: false,
+                spinsCount: 60,
+                paymentMethods: ["BLIK", "Mastercard", "Skrill", "Neteller", "MiFinity"],
+                pros: ["Bardzo niski minimalny depozyt (30 PLN)", "Polska obsługa klienta na czacie 24/7", "Cotygodniowy cashback do 12%"],
+                cons: ["Darmowe spiny na jedną konkretną grę"],
+                licence: "Curacao eGaming",
+                description: "Ice Casino słynie ze swojej niezawodności i błyskawicznego wsparcia technicznego w języku polskim."
+            },
+            {
+                id: 5,
+                name: "Spinanga Casino",
+                logo: "🗿",
+                rating: 4.8,
+                reviewsCount: 420,
+                badges: ["NOWE KASYNO 2026", "HIGH ROLLER"],
+                offerTitle: "200 Free Spinów + 100% do 2250 PLN",
+                gameName: "Gates of Olympus",
+                wager: "x35",
+                minDeposit: "90 PLN",
+                promoCode: "SPINANGA100",
+                categories: ["new", "free-spins"],
+                affiliateLink: "https://example.com/spinanga-aff",
+                isNew: true,
+                spinsCount: 200,
+                paymentMethods: ["BLIK", "Revolut", "Jeton", "MiFinity", "Crypto"],
+                pros: ["Ogromna paczka 200 free spinów na powitanie", "Motyw starożytnej cywilizacji i rozbudowany sklep z nagrodami", "Regularne wyścigi slotowe"],
+                cons: ["Wymagany minimalny depozyt 90 PLN dla bonusu głównego"],
+                licence: "Anjouan Gaming License",
+                description: "Najświeższy hit na polskim rynku! Spinanga oferuje powiew świeżości, świetne wyzwania oraz hojne nagrody dla stałych graczy."
+            }
+        ];
+
+        // State Variables
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'rating';
+
+        // Initialize App on DOM Load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCasinos();
+            setupSearchAndSort();
+            setupMobileMenu();
+        });
+
+        // Render Casino Cards Function
+        function renderCasinos() {
+            const container = document.getElementById('casino-list');
+            const noResults = document.getElementById('no-results');
+            
+            // Filter Data
+            let filtered = casinoData.filter(casino => {
+                const matchesCategory = currentCategory === 'all' || casino.categories.includes(currentCategory);
+                const matchesSearch = casino.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      casino.offerTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      casino.gameName.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            // Sort Data
+            filtered.sort((a, b) => {
+                if (currentSort === 'rating') return b.rating - a.rating;
+                if (currentSort === 'spins') return b.spinsCount - a.spinsCount;
+                if (currentSort === 'newest') return (b.isNew === a.isNew) ? 0 : b.isNew ? 1 : -1;
+                return 0;
+            });
+
+            // Handle Empty Search/Filter Result
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            // Build HTML
+            container.innerHTML = filtered.map(casino => `
+                <div class="bg-dark-800 border border-dark-700 hover:border-gold-500/50 rounded-2xl p-4 sm:p-6 card-hover-effect relative overflow-hidden">
+                    
+                    ${casino.isNew ? `<div class="absolute -right-12 top-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-[10px] font-extrabold uppercase py-1 px-12 rotate-45 shadow-lg">Nowość</div>` : ''}
+
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                        
+                        <!-- Col 1: Logo & Basic Info -->
+                        <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-1/4 text-center sm:text-left">
+                            <div class="w-20 h-20 rounded-2xl bg-dark-900 border border-dark-700 flex items-center justify-center text-4xl shadow-inner flex-shrink-0">
+                                ${casino.logo}
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-black text-white flex items-center justify-center sm:justify-start gap-2">
+                                    ${casino.name}
+                                </h3>
+                                <div class="flex items-center justify-center sm:justify-start gap-1 my-1">
+                                    <div class="text-gold-400 text-xs">
+                                        <i class="fa-solid fa-star"></i>
+                                        <span class="font-bold text-sm text-white ml-1">${casino.rating}</span>
+                                    </div>
+                                    <span class="text-gray-500 text-xs">/5.0 (${casino.reviewsCount})</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1 justify-center sm:justify-start mt-2">
+                                    ${casino.badges.map(badge => `
+                                        <span class="bg-gold-500/10 text-gold-400 border border-gold-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                                            ${badge}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Bonus Offer Main Info -->
+                        <div class="w-full lg:w-2/4 bg-dark-900/60 border border-dark-700/60 rounded-xl p-4 text-center sm:text-left">
+                            <div class="text-xs text-emerald-400 font-bold uppercase tracking-wider mb-1 flex items-center justify-center sm:justify-start gap-1">
+                                <i class="fa-solid fa-gift"></i> Główna Promocja Powitalna
+                            </div>
+                            <div class="text-lg sm:text-xl font-extrabold text-white mb-2">
+                                ${casino.offerTitle}
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-400 pt-2 border-t border-dark-700/50">
+                                <div><span class="block text-gray-500 text-[10px]">Gra:</span> <strong class="text-gray-200">${casino.gameName}</strong></div>
+                                <div><span class="block text-gray-500 text-[10px]">Obrót (Wager):</span> <strong class="text-gray-200">${casino.wager}</strong></div>
+                                <div><span class="block text-gray-500 text-[10px]">Kod Promocyjny:</span> 
+                                    <button onclick="copyCode('${casino.promoCode}')" class="inline-flex items-center gap-1 text-gold-400 font-bold hover:underline focus:outline-none">
+                                        ${casino.promoCode} <i class="fa-regular fa-copy text-[10px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Col 3: Action Buttons -->
+                        <div class="flex flex-col sm:flex-row lg:flex-col gap-2.5 w-full lg:w-1/4">
+                            <a href="${casino.affiliateLink}" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-dark-900 shadow-lg shadow-emerald-500/20 text-center transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <span>Odbierz Bonus</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <button onclick="openModal(${casino.id})" class="w-full py-2.5 px-4 rounded-xl font-bold text-xs bg-dark-700 hover:bg-dark-600 text-gray-200 border border-dark-600 text-center transition-all flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-circle-info text-gold-400"></i>
+                                <span>Recenzja i Detale</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Category Filter Tab Switching
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update active styles on buttons
+            document.querySelectorAll('#filter-tabs .tab-btn').forEach(btn => {
+                btn.classList.remove('bg-gold-500', 'text-dark-900');
+                btn.classList.add('bg-dark-700', 'text-gray-300');
+            });
+            event.currentTarget.classList.remove('bg-dark-700', 'text-gray-300');
+            event.currentTarget.classList.add('bg-gold-500', 'text-dark-900');
+
+            renderCasinos();
+        }
+
+        // Setup Search and Sort Handlers
+        function setupSearchAndSort() {
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderCasinos();
+            });
+        }
+
+        function sortCasinos() {
+            currentSort = document.getElementById('sort-select').value;
+            renderCasinos();
+        }
+
+        // Copy Promo Code Handler
+        function copyCode(code) {
+            // Fallback strategy using execCommand for iframe safety
+            const tempInput = document.createElement('input');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Skopiowano kod: ${code}`);
+            } catch (err) {
+                console.error('Błąd kopiowania:', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Show Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Modal Functions
+        function openModal(id) {
+            const casino = casinoData.find(c => c.id === id);
+            if (!casino) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="flex items-center gap-4 border-b border-dark-700 pb-4 mb-4">
+                    <div class="w-16 h-16 rounded-2xl bg-dark-900 border border-dark-700 flex items-center justify-center text-3xl shadow-inner">
+                        ${casino.logo}
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-black text-white">${casino.name} - Szczegółowa Recenzja</h2>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mt-1">
+                            <span class="text-gold-400 font-bold"><i class="fa-solid fa-star"></i> ${casino.rating}/5.0</span>
+                            <span>•</span>
+                            <span>Licencja: ${casino.licence}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-300 leading-relaxed mb-6">${casino.description}</p>
+
+                <!-- Bonus Rules Box -->
+                <div class="bg-dark-900/80 border border-gold-500/30 rounded-xl p-4 mb-6">
+                    <h4 class="text-sm font-bold text-gold-400 mb-2 flex items-center gap-1.5">
+                        <i class="fa-solid fa-scroll"></i> Warunki Promocji Bez Depozytu
+                    </h4>
+                    <ul class="text-xs space-y-1.5 text-gray-300">
+                        <li>• <strong>Gra:</strong> ${casino.gameName}</li>
+                        <li>• <strong>Wymóg obrotu (Wager):</strong> ${casino.wager}</li>
+                        <li>• <strong>Kod promocyjny:</strong> <span class="bg-dark-800 px-2 py-0.5 rounded text-gold-400 font-mono font-bold">${casino.promoCode}</span></li>
+                        <li>• <strong>Minimalny depozyt do wypłaty:</strong> ${casino.minDeposit}</li>
+                    </ul>
+                </div>
+
+                <!-- Pros & Cons Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-emerald-950/20 border border-emerald-900/40 rounded-xl p-4">
+                        <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                            <i class="fa-solid fa-thumbs-up"></i> Zalety
+                        </h4>
+                        <ul class="text-xs space-y-1.5 text-gray-300">
+                            ${casino.pros.map(pro => `<li>✓ ${pro}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-950/20 border border-red-900/40 rounded-xl p-4">
+                        <h4 class="text-xs font-bold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-1">
+                            <i class="fa-solid fa-thumbs-down"></i> Wady
+                        </h4>
+                        <ul class="text-xs space-y-1.5 text-gray-300">
+                            ${casino.cons.map(con => `<li>✕ ${con}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Metody Płatności</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${casino.paymentMethods.map(pm => `
+                            <span class="bg-dark-900 border border-dark-700 text-gray-300 text-xs px-3 py-1 rounded-lg font-semibold">
+                                ${pm}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Modal CTA -->
+                <div class="pt-4 border-t border-dark-700 flex flex-col sm:flex-row gap-3">
+                    <a href="${casino.affiliateLink}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-dark-900 shadow-lg text-center">
+                        Odebranie Bonusu w ${casino.name}
+                    </a>
+                    <button onclick="closeModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-sm bg-dark-700 hover:bg-dark-600 text-gray-300">
+                        Zamknij
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('review-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('review-modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking background overlay
+        document.getElementById('review-modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('review-modal')) {
+                closeModal();
+            }
+        });
+
+        // Toggle Accordion Item
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Setup Mobile Nav Toggle
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
